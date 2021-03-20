@@ -19,15 +19,15 @@
     ],
     "rules": {
         "indent": [
-            "warning",
+            "warn",
             4
         ],
         "quotes": [
-            "warning",
+            "warn",
             "single"
         ],
         "semi": [
-            "warning",
+            "warn",
             "never"
         ]
     }
