@@ -11,8 +11,12 @@ const LoginForm = ({ visible, setVisible }) => {
             onHide={() => setVisible(false)}
             centered={true}>
             <Surround>
-                <div>Username: <input /></div>
-                <div>Password: <input type='password'/></div>
+                <div style={{
+
+                }}>
+                    <div>Username: <input /></div>
+                    <div className='marginBottom'>Password: <input type='password'/></div>
+                </div>
             </Surround>
         </Modal>
     )

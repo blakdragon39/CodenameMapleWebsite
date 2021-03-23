@@ -1,0 +1,15 @@
+$color-primary: #fb8500;
+$color-primary-light: #fc941e;
+$color-highlight: #ffb703;
+
+$color-background: #8ecae6;
+
+$primary: $color-primary;
+
+body {
+  background-color: $color-background;
+  height: 100vh;
+}
+
+//@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';

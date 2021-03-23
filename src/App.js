@@ -1,6 +1,5 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
+import './theme.css'
 
 import Home from './home/Home'
 

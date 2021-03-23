@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import LoginForm from '../LoginForm'
 
 const Home = () => {
-    const [ loginVisible, setLoginVisible ] = useState(true)
+    const [ loginVisible, setLoginVisible ] = useState(false)
 
     return (
         <div>
