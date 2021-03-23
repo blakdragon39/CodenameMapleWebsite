@@ -1,6 +1,0 @@
-const style = {
-    background: theme.colors.primary,
-    padding: 16,
-    border: `8px solid ${theme.colors.primaryHighlight}`,
-    borderRadius: 16
-}

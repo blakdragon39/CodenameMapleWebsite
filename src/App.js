@@ -1,19 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import LoginForm from './LoginForm'
+
+import Home from './home/Home'
 
 const style = {
 }
 
 function App() {
-    const [ loginVisible, setLoginVisible ] = useState(true)
-
     return (
         <div style={style}>
-            <LoginForm
-                visible={loginVisible}
-                setVisible={setLoginVisible}/>
+            <Home />
         </div>
     )
 }
