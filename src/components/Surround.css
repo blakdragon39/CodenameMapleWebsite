@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.modal-content {
+  background-color: #00000000;
+  border: 0;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -9928,5 +9933,11 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.surround {
+  background: #fb8500;
+  padding: 16px;
+  border: 8px solid #ffb703;
+  border-radius: 16px;
+}
 
-/*# sourceMappingURL=theme.css.map */
+/*# sourceMappingURL=Surround.css.map */

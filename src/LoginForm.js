@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'react-bootstrap/Modal'
 import Surround from './components/Surround'
-import './Modal.css'
+import './css/Modal.css'
 
 const LoginForm = ({ visible, setVisible }) => {
     return (
