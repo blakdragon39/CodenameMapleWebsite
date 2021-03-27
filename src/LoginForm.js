@@ -14,7 +14,7 @@ const LoginForm = ({ visible, setVisible }) => {
 
     const tryLogin = (e) => {
         e.preventDefault()
-        dispatch(login({password: 'supersecretpassword'}))
+        dispatch(login('blakdragon', 'supersecretpassword'))
     }
 
     return (

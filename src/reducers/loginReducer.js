@@ -1,4 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import loginService from '../services/login'
+
+export const login = createAsyncThunk(
+    'login/login',
+    async (email, password) => {
+        return await loginService.login(email, password)
+    }
+)
 
 export const loginSlice = createSlice({
     name: 'login',
@@ -6,18 +14,19 @@ export const loginSlice = createSlice({
         user: null
     },
     reducers: {
-        login: (state, action) => {
-            console.log('state', state)
-            console.log('action', action)
-            state.user = { username: 'Username Here', password: action, token: 'madeuptoken'}
-        },
         logout: (state) => {
             state.user = null
+        }
+    },
+    extraReducers: {
+        [login.fulfilled]: (state, action) => {
+            console.log('state', state)
+            console.log('action', action)
         }
     }
 })
 
 
-export const { login, logout } = loginSlice.actions
+export const { logout } = loginSlice.actions
 
 export default loginSlice.reducer
