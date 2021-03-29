@@ -9,9 +9,4 @@ $primary: $color-primary;
 $secondary: $color-secondary;
 $body-bg: $color-background;
 
-.modal-content {
-    background-color: #00000000;
-    border: 0;
-}
-
 @import '../node_modules/bootstrap/scss/bootstrap.scss';

@@ -3,8 +3,12 @@ import loginService from '../services/login'
 
 export const login = createAsyncThunk(
     'login/login',
-    async ({ email, password }) => {
-        return await loginService.login(email, password)
+    async ({ email, password }, { rejectWithValue }) => {
+        try {
+            return await loginService.login(email, password)
+        } catch (e) {
+            return rejectWithValue(e.response.data.message)
+        }
     }
 )
 
@@ -15,6 +19,9 @@ export const loginSlice = createSlice({
         error: null
     },
     reducers: {
+        resetError: (state) => {
+            state.error = null
+        },
         logout: (state) => {
             state.user = null
             state.error = null
@@ -26,13 +33,14 @@ export const loginSlice = createSlice({
             state.error = null
         },
         [login.rejected]: (state, action) => {
+            console.log('rejected action', action)
             state.user = null
-            state.error = action.error
+            state.error = action.payload
         }
     }
 })
 
 
-export const { logout } = loginSlice.actions
+export const { resetError, logout } = loginSlice.actions
 
 export default loginSlice.reducer

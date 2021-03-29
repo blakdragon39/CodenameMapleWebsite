@@ -2,48 +2,65 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { login } from './reducers/loginReducer'
+import { login, resetError } from './reducers/loginReducer'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 import Surround from './components/Surround'
-import './css/Modal.css'
+import './css/LoginModal.css'
 
 const LoginForm = ({ visible, setVisible }) => {
     const dispatch = useDispatch()
+
     const loginState = useSelector(store => store.login)
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    console.log('login state', loginState)
 
-    const tryLogin = (e) => {
+    const onSubmitLogin = (e) => {
         e.preventDefault()
-        console.log('logging in', email, password)
+        //todo errors if no email/password entered
         dispatch(login({ email, password }))
+    }
+
+    const dismissError = () => dispatch(resetError())
+
+    const dismissLogin = () => {
+        dismissError()
+        setVisible(false)
     }
 
     return (
         <Modal
             show={visible}
-            onHide={() => setVisible(false)}
+            onHide={dismissLogin}
             centered={true}>
+
             <Surround>
-                <form onSubmit={tryLogin}>
-                    <div>
-                        Username:
+                {
+                    loginState.error ?
+                        <Alert variant='danger' dismissible onClose={dismissError}>{ loginState.error }</Alert> :
+                        null
+                }
+                <form onSubmit={onSubmitLogin}>
+                    <div className='marginBottom'>
+                        <span className='labelText'>Email:</span>
                         <input
                             value={email}
                             onChange={(event) => setEmail(event.target.value)} />
                     </div>
                     <div className='marginBottom'>
-                        Password:
+                        <span className='labelText'>Password:</span>
                         <input
                             type='password'
                             value={password}
                             onChange={(event) => setPassword(event.target.value)} />
                     </div>
-                    <Button type='submit' variant='secondary'>Login</Button>
+                    <div className='buttons'>
+                        <Button type='submit' variant='secondary'>Login</Button>
+                        <Button variant='outline-secondary'>Forgot Password</Button>
+                    </div>
                 </form>
             </Surround>
         </Modal>

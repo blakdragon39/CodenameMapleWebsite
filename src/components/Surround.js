@@ -14,4 +14,6 @@ Surround.propTypes = {
     children: PropTypes.node.isRequired
 }
 
+Surround.displayName = 'Surround'
+
 export default Surround
