@@ -3,15 +3,21 @@
     border: 0;
 }
 
-.labelText {
+.inputField {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.inputField input {
+    width: 45%;
+}
+
+.inputField span {
     display: inline-flex;
     justify-content: flex-end;
     margin-right: 16px;
-    width: 128px;
-}
-
-.marginBottom {
-    margin-bottom: 8px;
+    width: 15%;
 }
 
 .buttons {

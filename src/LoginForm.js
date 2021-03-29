@@ -44,14 +44,14 @@ const LoginForm = ({ visible, setVisible }) => {
                         null
                 }
                 <form onSubmit={onSubmitLogin}>
-                    <div className='marginBottom'>
-                        <span className='labelText'>Email:</span>
+                    <div className='inputField'>
+                        <span>Email:</span>
                         <input
                             value={email}
                             onChange={(event) => setEmail(event.target.value)} />
                     </div>
-                    <div className='marginBottom'>
-                        <span className='labelText'>Password:</span>
+                    <div className='inputField'>
+                        <span>Password:</span>
                         <input
                             type='password'
                             value={password}
