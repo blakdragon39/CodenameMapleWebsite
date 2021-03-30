@@ -1,0 +1,8 @@
+@use "colors";
+
+.surround {
+    background: colors.$color-primary;
+    padding: 16px;
+    border: 8px solid colors.$color-primary-highlight;
+    border-radius: 16px;
+}

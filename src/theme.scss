@@ -1,12 +1,7 @@
-$color-primary: #fb8500;
-$color-primary-highlight: #ffb703;
-$color-secondary: #023047;
-$color-secondary-highlight: #219ebc;
+@use "css/colors";
 
-$color-background: #8ecae6;
-
-$primary: $color-primary;
-$secondary: $color-secondary;
-$body-bg: $color-background;
+$primary: colors.$color-primary;
+$secondary: colors.$color-secondary;
+$body-bg: colors.$color-background;
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
