@@ -1,33 +1,42 @@
 .modal-content {
-    background-color: #00000000;
-    border: 0;
+  background-color: #00000000;
+  border: 0;
 }
 
 .inputField {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
 }
 
 .inputField input {
-    width: 45%;
+  width: 45%;
 }
 
 .inputField span {
-    display: inline-flex;
-    justify-content: flex-end;
-    margin-right: 16px;
-    width: 15%;
+  display: inline-flex;
+  justify-content: flex-end;
+  margin-right: 16px;
+  width: 15%;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
 }
 
 .buttons button {
-    width: 160px;
-    margin-left: 8px;
-    margin-right: 8px;
+  width: 160px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
+.text {
+  text-align: center;
+}
+.text a {
+  color: #023047;
+}
+
+/*# sourceMappingURL=LoginModal.css.map */

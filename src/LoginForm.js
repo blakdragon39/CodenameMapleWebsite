@@ -59,8 +59,9 @@ const LoginForm = ({ visible, setVisible }) => {
                     </div>
                     <div className='buttons'>
                         <Button type='submit' variant='secondary'>Login</Button>
-                        <Button variant='outline-secondary'>Forgot Password</Button>
+                        <Button variant='secondary'>Sign-up</Button>
                     </div>
+                    <div className='text'><a href='/forgotPassword'>Forgot password?</a></div>
                 </form>
             </Surround>
         </Modal>
