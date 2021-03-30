@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import PropType from 'prop-types'
+
+import { logout } from '../reducers/loginReducer';
 
 import Button from 'react-bootstrap/Button'
 import LoginForm from '../LoginForm'
@@ -17,7 +19,7 @@ const NavBar = () => {
         <div className='navBar'>
             {
                 loginState.user ?
-                    <div>Welcome, { loginState.user.displayName }</div> :
+                    <UserInfo user={loginState.user} /> :
                     <LoginSignup setLoginVisible={setLoginVisible} />
             }
             <LoginForm
@@ -25,6 +27,25 @@ const NavBar = () => {
                 visible={loginVisible} />
         </div>
     )
+}
+
+const UserInfo = ({ user }) => {
+    const dispatch = useDispatch()
+
+    const onLogout = () => {
+        dispatch(logout())
+    }
+
+    return (
+        <div className='userInfo'>
+            Welcome, { user.displayName }
+            <Button variant='outline-secondary' onClick={onLogout}>Logout</Button>
+        </div>
+    )
+}
+
+UserInfo.propTypes = {
+    user: PropType.object.isRequired
 }
 
 const LoginSignup = ({ setLoginVisible }) => {

@@ -1,11 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import loginService from '../services/login'
+import localStorage from '../services/localStorage'
 
 export const login = createAsyncThunk(
     'login/login',
     async ({ email, password }, { rejectWithValue }) => {
         try {
-            return await loginService.login(email, password)
+            const user = await loginService.login(email, password)
+            localStorage.setUser(user)
+            return user
         } catch (e) {
             return rejectWithValue(e.response.data.message)
         }
@@ -15,7 +18,7 @@ export const login = createAsyncThunk(
 export const loginSlice = createSlice({
     name: 'login',
     initialState: {
-        user: null,
+        user: localStorage.getUser(),
         error: null
     },
     reducers: {
@@ -23,6 +26,7 @@ export const loginSlice = createSlice({
             state.error = null
         },
         logout: (state) => {
+            localStorage.setUser(null)
             state.user = null
             state.error = null
         }
