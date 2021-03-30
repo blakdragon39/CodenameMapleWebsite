@@ -33,7 +33,6 @@ export const loginSlice = createSlice({
             state.error = null
         },
         [login.rejected]: (state, action) => {
-            console.log('rejected action', action)
             state.user = null
             state.error = action.payload
         }
