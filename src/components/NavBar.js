@@ -13,7 +13,6 @@ const NavBar = () => {
     const [ loginVisible, setLoginVisible ] = useState(false)
 
     //todo automatically focus LoginModal email
-    //todo dismiss modal on login, do this by redirecting?
 
     return (
         <div className='navBar'>

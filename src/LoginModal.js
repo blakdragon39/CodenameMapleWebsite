@@ -18,16 +18,28 @@ const LoginModal = ({ visible, setVisible }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const onSubmitLogin = (e) => {
+    const onSubmitLogin = async (e) => {
         e.preventDefault()
+
         //todo errors if no email/password entered
-        dispatch(login({ email, password }))
+        const result = await dispatch(login({ email, password }))
+        switch (result.type) {
+        case login.rejected.toString():
+            setPassword('')
+            break
+        case login.fulfilled.toString():
+            dismissLogin()
+            break
+        }
     }
 
     const dismissError = () => dispatch(resetError())
 
     const dismissLogin = () => {
+        console.log('dismissing login')
         dismissError()
+        setEmail('')
+        setPassword('')
         setVisible(false)
     }
 
@@ -59,9 +71,8 @@ const LoginModal = ({ visible, setVisible }) => {
                     </div>
                     <div className='buttons'>
                         <Button type='submit' variant='secondary'>Login</Button>
-                        <Button variant='secondary'>Sign-up</Button>
+                        <Button variant='outline-secondary'>Forgot Password</Button>
                     </div>
-                    <div className='text'><a href='/forgotPassword'>Forgot password?</a></div>
                 </form>
             </Surround>
         </Modal>
