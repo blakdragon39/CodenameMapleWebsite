@@ -1,15 +1,7 @@
-$color-primary: #fb8500;
-$color-highlight: #ffb703;
+@use "css/colors";
 
-$color-background: #8ecae6;
-
-$primary: $color-primary;
-$secondary: $color-highlight;
-$body-bg: $color-background;
-
-.modal-content {
-    background-color: #00000000;
-    border: 0;
-}
+$primary: colors.$color-primary;
+$secondary: colors.$color-secondary;
+$body-bg: colors.$color-background;
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';

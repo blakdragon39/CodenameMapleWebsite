@@ -1,16 +1,10 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button'
-import LoginForm from '../LoginForm'
+import React  from 'react'
+import NavBar from '../components/NavBar'
 
 const Home = () => {
-    const [ loginVisible, setLoginVisible ] = useState(false)
-
     return (
         <div>
-            <Button onClick={() => setLoginVisible(true)}>Login</Button>
-            <LoginForm
-                setVisible={setLoginVisible}
-                visible={loginVisible} />
+            <NavBar />
         </div>
     )
 }

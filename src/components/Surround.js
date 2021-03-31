@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './Surround.css'
+import '../css/Surround.css'
 
 const Surround = (props) => {
     return (
@@ -13,5 +13,7 @@ const Surround = (props) => {
 Surround.propTypes = {
     children: PropTypes.node.isRequired
 }
+
+Surround.displayName = 'Surround'
 
 export default Surround
