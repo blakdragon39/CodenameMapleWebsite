@@ -5,7 +5,7 @@ import PropType from 'prop-types'
 import { logout } from '../reducers/loginReducer';
 
 import Button from 'react-bootstrap/Button'
-import LoginForm from '../LoginForm'
+import LoginModal from '../LoginModal'
 import '../css/NavBar.css'
 
 const NavBar = () => {
@@ -22,7 +22,7 @@ const NavBar = () => {
                     <UserInfo user={loginState.user} /> :
                     <LoginSignup setLoginVisible={setLoginVisible} />
             }
-            <LoginForm
+            <LoginModal
                 setVisible={setLoginVisible}
                 visible={loginVisible} />
         </div>

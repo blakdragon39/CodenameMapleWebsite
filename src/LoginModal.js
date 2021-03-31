@@ -10,7 +10,7 @@ import Alert from 'react-bootstrap/Alert'
 import Surround from './components/Surround'
 import './css/LoginModal.css'
 
-const LoginForm = ({ visible, setVisible }) => {
+const LoginModal = ({ visible, setVisible }) => {
     const dispatch = useDispatch()
 
     const loginState = useSelector(store => store.login)
@@ -68,9 +68,9 @@ const LoginForm = ({ visible, setVisible }) => {
     )
 }
 
-LoginForm.propTypes = {
+LoginModal.propTypes = {
     visible: PropTypes.bool.isRequired,
     setVisible: PropTypes.func.isRequired
 }
 
-export default LoginForm
+export default LoginModal
