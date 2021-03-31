@@ -4,7 +4,7 @@ import './theme.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
 import NavBar from './components/common/NavBar'
-import SignUp from './components/SignUp'
+import SignUp from './components/signUp/SignUp'
 
 function App() {
     return (
