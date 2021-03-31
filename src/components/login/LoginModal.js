@@ -1,17 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import { login, resetError } from './reducers/loginReducer'
+import { login, resetError } from '../../reducers/loginReducer'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
-import Surround from './components/Surround'
-import './css/LoginModal.css'
+import Surround from '../common/Surround'
+import './LoginModal.css'
 
 const LoginModal = ({ visible, setVisible }) => {
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const loginState = useSelector(store => store.login)
 
@@ -31,6 +33,7 @@ const LoginModal = ({ visible, setVisible }) => {
             break
         case login.fulfilled.toString():
             dismissLogin()
+            history.push('/')
             break
         }
     }

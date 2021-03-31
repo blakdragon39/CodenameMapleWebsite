@@ -2,15 +2,20 @@ import React from 'react'
 import './theme.css'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Home from './home/Home'
-import NavBar from './components/NavBar'
+import Home from './components/Home'
+import NavBar from './components/common/NavBar'
+import SignUp from './components/SignUp'
 
 function App() {
     return (
         <div>
-            <NavBar />
             <BrowserRouter>
+                <NavBar />
+
                 <Switch>
+                    <Route exact path='/sign-up'>
+                        <SignUp />
+                    </Route>
                     <Route exact path='/'>
                         <Home />
                     </Route>
