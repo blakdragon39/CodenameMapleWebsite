@@ -1,15 +1,15 @@
 @use "colors";
 
-button {
-    margin-right: 12px;
-}
-
 .navBar {
     background: colors.$color-primary;
     height: 64px;
     padding: 12px;
     display: flex;
     align-items: center;
+
+    button {
+        margin-right: 12px;
+    }
 }
 
 .userInfo {

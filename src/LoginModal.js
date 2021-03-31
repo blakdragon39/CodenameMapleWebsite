@@ -44,7 +44,6 @@ const LoginModal = ({ visible, setVisible }) => {
     const dismissError = () => dispatch(resetError())
 
     const dismissLogin = () => {
-        console.log('dismissing login')
         dismissError()
         setEmail('')
         setPassword('')

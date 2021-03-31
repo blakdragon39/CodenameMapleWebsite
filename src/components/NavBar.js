@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import PropType from 'prop-types'
 
-import { logout } from '../reducers/loginReducer';
+import { logout } from '../reducers/loginReducer'
 
 import Button from 'react-bootstrap/Button'
 import LoginModal from '../LoginModal'

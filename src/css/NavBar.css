@@ -1,13 +1,12 @@
-button {
-  margin-right: 12px;
-}
-
 .navBar {
   background: #fb8500;
   height: 64px;
   padding: 12px;
   display: flex;
   align-items: center;
+}
+.navBar button {
+  margin-right: 12px;
 }
 
 .userInfo {
