@@ -59,7 +59,7 @@ const LoginModal = ({ visible, setVisible }) => {
             onHide={dismissLogin}
             centered={true}>
 
-            <Surround>
+            <Surround reverse>
                 {
                     loginState.error ?
                         <Alert variant='danger' dismissible onClose={dismissError}>{ loginState.error }</Alert> :

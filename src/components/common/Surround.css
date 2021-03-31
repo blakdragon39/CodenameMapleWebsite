@@ -1,8 +1,18 @@
-.surround {
-  background: #fb8500;
+.surroundReverse, .surround {
   padding: 16px;
-  border: 8px solid #ffb703;
   border-radius: 16px;
+  border-width: 8px;
+  border-style: solid;
+}
+
+.surround {
+  background: #ffb703;
+  border-color: #fb8500;
+}
+
+.surroundReverse {
+  background: #fb8500;
+  border-color: #ffb703;
 }
 
 /*# sourceMappingURL=Surround.css.map */
