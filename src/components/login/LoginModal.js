@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import useControlledInput from '../hooks/useControlledInput'
 import PropTypes from 'prop-types'
 
-import { login, resetError } from '../../reducers/loginReducer'
+import { login } from '../../reducers/loginReducer'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
@@ -16,17 +16,15 @@ const LoginModal = ({ visible, setVisible }) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const loginState = useSelector(store => store.login)
-
     const email = useControlledInput('text')
     const password = useControlledInput('password')
+    const [error, setError] = useState(null)
 
     const focusRef = useRef()
 
     const onSubmitLogin = async (e) => {
         e.preventDefault()
 
-        //todo errors if no email/password entered
         const result = await dispatch(login({
             email: email.value,
             password: password.value
@@ -34,6 +32,7 @@ const LoginModal = ({ visible, setVisible }) => {
 
         switch (result.type) {
         case login.rejected.toString():
+            setError(result.payload)
             password.clear()
             break
         case login.fulfilled.toString():
@@ -49,7 +48,7 @@ const LoginModal = ({ visible, setVisible }) => {
         }
     }, [visible])
 
-    const dismissError = () => dispatch(resetError())
+    const dismissError = () => setError(null)
 
     const dismissLogin = () => {
         dismissError()
@@ -66,18 +65,18 @@ const LoginModal = ({ visible, setVisible }) => {
 
             <Surround reverse>
                 {
-                    loginState.error ?
-                        <Alert variant='danger' dismissible onClose={dismissError}>{ loginState.error }</Alert> :
+                    error ?
+                        <Alert variant='danger' dismissible onClose={dismissError}>{ error }</Alert> :
                         null
                 }
                 <form onSubmit={onSubmitLogin}>
                     <div className='inputField'>
                         <span>Email:</span>
-                        <input ref={focusRef} {...email} />
+                        <input ref={focusRef} required {...email} />
                     </div>
                     <div className='inputField'>
                         <span>Password:</span>
-                        <input {...password} />
+                        <input required {...password} />
                     </div>
                     <div className='buttons'>
                         <Button type='submit' variant='secondary'>Login</Button>

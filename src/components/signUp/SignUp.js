@@ -16,19 +16,19 @@ const SignUp = () => {
                 <form>
                     <div className='inputField'>
                         <span>Email:</span>
-                        <input {...email} />
+                        <input required {...email} />
                     </div>
                     <div className='inputField'>
                         <span>Password:</span>
-                        <input {...password} />
+                        <input required {...password} />
                     </div>
                     <div className='inputField'>
                         <span>Re-enter Password:</span>
-                        <input {...reEnterPassword} />
+                        <input required {...reEnterPassword} />
                     </div>
                     <div className='inputField'>
                         <span>Display Name:</span>
-                        <input {...displayName} />
+                        <input required {...displayName} />
                     </div>
                     <div className='buttons'>
                         <Button type='submit' variant='secondary'>Complete Sign-up</Button>
