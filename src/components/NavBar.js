@@ -12,8 +12,6 @@ const NavBar = () => {
     const loginState = useSelector(store => store.login)
     const [ loginVisible, setLoginVisible ] = useState(false)
 
-    //todo automatically focus LoginModal email
-
     return (
         <div className='navBar'>
             {

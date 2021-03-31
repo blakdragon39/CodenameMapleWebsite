@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -18,6 +18,8 @@ const LoginModal = ({ visible, setVisible }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const focusRef = useRef()
+
     const onSubmitLogin = async (e) => {
         e.preventDefault()
 
@@ -32,6 +34,12 @@ const LoginModal = ({ visible, setVisible }) => {
             break
         }
     }
+
+    useEffect(() => {
+        if (visible) {
+            focusRef.current.focus()
+        }
+    }, [visible])
 
     const dismissError = () => dispatch(resetError())
 
@@ -59,6 +67,7 @@ const LoginModal = ({ visible, setVisible }) => {
                     <div className='inputField'>
                         <span>Email:</span>
                         <input
+                            ref={focusRef}
                             value={email}
                             onChange={(event) => setEmail(event.target.value)} />
                     </div>
