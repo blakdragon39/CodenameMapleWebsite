@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import useControlledInput from '../hooks/useControlledInput'
 import PropTypes from 'prop-types'
 
 import { login, resetError } from '../../reducers/loginReducer'
@@ -17,8 +18,8 @@ const LoginModal = ({ visible, setVisible }) => {
 
     const loginState = useSelector(store => store.login)
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const email = useControlledInput('text')
+    const password = useControlledInput('password')
 
     const focusRef = useRef()
 
@@ -26,10 +27,14 @@ const LoginModal = ({ visible, setVisible }) => {
         e.preventDefault()
 
         //todo errors if no email/password entered
-        const result = await dispatch(login({ email, password }))
+        const result = await dispatch(login({
+            email: email.value,
+            password: password.value
+        }))
+
         switch (result.type) {
         case login.rejected.toString():
-            setPassword('')
+            password.clear()
             break
         case login.fulfilled.toString():
             dismissLogin()
@@ -48,8 +53,8 @@ const LoginModal = ({ visible, setVisible }) => {
 
     const dismissLogin = () => {
         dismissError()
-        setEmail('')
-        setPassword('')
+        email.clear()
+        password.clear()
         setVisible(false)
     }
 
@@ -68,17 +73,11 @@ const LoginModal = ({ visible, setVisible }) => {
                 <form onSubmit={onSubmitLogin}>
                     <div className='inputField'>
                         <span>Email:</span>
-                        <input
-                            ref={focusRef}
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)} />
+                        <input ref={focusRef} {...email} />
                     </div>
                     <div className='inputField'>
                         <span>Password:</span>
-                        <input
-                            type='password'
-                            value={password}
-                            onChange={(event) => setPassword(event.target.value)} />
+                        <input {...password} />
                     </div>
                     <div className='buttons'>
                         <Button type='submit' variant='secondary'>Login</Button>

@@ -14,23 +14,23 @@ const SignUp = () => {
         <div className='content'>
             <Surround>
                 <form>
-                    <div>
+                    <div className='inputField'>
                         <span>Email:</span>
                         <input {...email} />
                     </div>
-                    <div>
+                    <div className='inputField'>
                         <span>Password:</span>
                         <input {...password} />
                     </div>
-                    <div>
+                    <div className='inputField'>
                         <span>Re-enter Password:</span>
                         <input {...reEnterPassword} />
                     </div>
-                    <div>
+                    <div className='inputField'>
                         <span>Display Name:</span>
                         <input {...displayName} />
                     </div>
-                    <div>
+                    <div className='buttons'>
                         <Button type='submit' variant='secondary'>Complete Sign-up</Button>
                     </div>
                 </form>

@@ -9,17 +9,17 @@
     display: flex;
     justify-content: center;
     margin-bottom: 16px;
-}
 
-.inputField input {
-    width: 45%;
-}
+    input {
+        width: 45%;
+    }
 
-.inputField span {
-    display: inline-flex;
-    justify-content: flex-end;
-    margin-right: 16px;
-    width: 15%;
+    span {
+        display: inline-flex;
+        justify-content: flex-end;
+        margin-right: 16px;
+        width: 15%;
+    }
 }
 
 .buttons {

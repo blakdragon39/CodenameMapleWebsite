@@ -6,4 +6,32 @@
 
 .surround {
     padding: 32px;
+    width: 600px;
+}
+
+.inputField {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+
+    input {
+        flex-grow: 2;
+    }
+
+    span {
+        flex-grow: 1;
+        display: inline-flex;
+        justify-content: flex-end;
+        margin-right: 16px;
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+
+    button {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
 }
