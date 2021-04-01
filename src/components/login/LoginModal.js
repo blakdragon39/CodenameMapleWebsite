@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 import Surround from '../common/Surround'
 import './LoginModal.css'
+import Visibility from '../common/Visibility'
 
 const LoginModal = ({ visible, setVisible }) => {
     const dispatch = useDispatch()
@@ -31,13 +32,13 @@ const LoginModal = ({ visible, setVisible }) => {
         }))
 
         switch (result.type) {
-        case login.rejected.toString():
-            setError(result.payload)
-            password.clear()
-            break
         case login.fulfilled.toString():
             dismissLogin()
             history.push('/')
+            break
+        case login.rejected.toString():
+            setError(result.payload)
+            password.clear()
             break
         }
     }
@@ -64,11 +65,9 @@ const LoginModal = ({ visible, setVisible }) => {
             centered={true}>
 
             <Surround reverse>
-                {
-                    error ?
-                        <Alert variant='danger' dismissible onClose={dismissError}>{ error }</Alert> :
-                        null
-                }
+                <Visibility show={error !== null}>
+                    <Alert variant='danger' dismissible onClose={dismissError}>{ error }</Alert>
+                </Visibility>
                 <form onSubmit={onSubmitLogin}>
                     <div className='inputField'>
                         <span>Email:</span>
