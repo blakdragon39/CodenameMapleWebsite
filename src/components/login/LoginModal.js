@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import useControlledInput from '../hooks/useControlledInput'
 import PropTypes from 'prop-types'
@@ -9,15 +9,17 @@ import { login } from '../../reducers/loginReducer'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
+import Form from 'react-bootstrap/Form'
 import Surround from '../common/Surround'
-import './LoginModal.css'
 import Visibility from '../common/Visibility'
+import './LoginModal.css'
 
 const LoginModal = ({ visible, setVisible }) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const email = useControlledInput('text')
+    const loginState = useSelector(store => store.login)
+    const email = useControlledInput('email')
     const password = useControlledInput('password')
     const [error, setError] = useState(null)
 
@@ -68,28 +70,32 @@ const LoginModal = ({ visible, setVisible }) => {
                 <Visibility show={error !== null}>
                     <Alert variant='danger' dismissible onClose={dismissError}>{ error }</Alert>
                 </Visibility>
-                <form onSubmit={onSubmitLogin}>
-                    <div className='inputField'>
-                        <span>Email:</span>
-                        <input
-                            ref={focusRef}
+                <Form onSubmit={onSubmitLogin}>
+                    <Form.Group>
+                        <Form.Label>Email:</Form.Label>
+                        <Form.Control
                             required
+                            ref={focusRef}
+                            type={email.type}
                             value={email.value}
-                            onChange={email.onChange} />
-                    </div>
-                    <div className='inputField'>
-                        <span>Password:</span>
-                        <input
+                            onChange={email.onChange}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Password:</Form.Label>
+                        <Form.Control
                             required
                             type={password.type}
                             value={password.value}
                             onChange={password.onChange} />
-                    </div>
-                    <div className='buttons'>
-                        <Button type='submit' variant='secondary'>Login</Button>
+                    </Form.Group>
+                    <div className='login-buttons'>
+                        <Button
+                            type='submit'
+                            variant='secondary'
+                            disabled={loginState.pending}>{ loginState.pending ? 'Logging In...' : 'Login'}</Button>
                         <Button variant='outline-secondary'>Forgot Password</Button>
                     </div>
-                </form>
+                </Form>
             </Surround>
         </Modal>
     )

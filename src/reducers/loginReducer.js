@@ -30,7 +30,8 @@ export const login = createAsyncThunk(
 export const loginSlice = createSlice({
     name: 'login',
     initialState: {
-        user: localStorage.getUser()
+        user: localStorage.getUser(),
+        pending: false
     },
     reducers: {
         logout: (state) => {
@@ -39,11 +40,25 @@ export const loginSlice = createSlice({
         }
     },
     extraReducers: {
+        [login.pending]: (state) => {
+            state.pending = true
+        },
         [login.fulfilled]: (state, action) => {
             state.user = action.payload
+            state.pending = false
         },
         [login.rejected]: (state) => {
             state.user = null
+            state.pending = false
+        },
+        [register.pending]: (state) => {
+            state.pending = true
+        },
+        [register.fulfilled]: (state) => {
+            state.pending = true
+        },
+        [register.rejected]: (state) => {
+            state.pending = true
         }
     }
 })

@@ -5,28 +5,7 @@
     border: 0;
 }
 
-.inputField {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 16px;
-
-    input {
-        width: 45%;
-    }
-
-    span {
-        display: inline-flex;
-        justify-content: flex-end;
-        margin-right: 16px;
-        width: 15%;
-    }
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 12px;
-
+.login-buttons {
     button {
         width: 160px;
         margin-left: 8px;
