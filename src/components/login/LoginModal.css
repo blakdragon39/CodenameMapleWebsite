@@ -8,11 +8,9 @@
   justify-content: center;
   margin-bottom: 16px;
 }
-
 .inputField input {
   width: 45%;
 }
-
 .inputField span {
   display: inline-flex;
   justify-content: flex-end;
@@ -25,18 +23,10 @@
   justify-content: center;
   margin-bottom: 12px;
 }
-
 .buttons button {
   width: 160px;
   margin-left: 8px;
   margin-right: 8px;
-}
-
-.text {
-  text-align: center;
-}
-.text a {
-  color: #023047;
 }
 
 /*# sourceMappingURL=LoginModal.css.map */

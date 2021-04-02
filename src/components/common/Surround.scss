@@ -1,0 +1,21 @@
+@use "../../css/colors";
+
+%surroundParent {
+    padding: 16px;
+    border-radius: 16px;
+    border-width: 8px;
+    border-style: solid;
+}
+
+.surround {
+    @extend %surroundParent;
+    background: colors.$color-primary-highlight;
+    border-color: colors.$color-primary;
+}
+
+.surroundReverse {
+    @extend %surroundParent;
+    background: colors.$color-primary;
+    border-color: colors.$color-primary-highlight;
+}
+

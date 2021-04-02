@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import PropType from 'prop-types'
 
-import { logout } from '../reducers/loginReducer';
+import { logout } from '../../reducers/loginReducer'
 
 import Button from 'react-bootstrap/Button'
-import LoginModal from '../LoginModal'
-import '../css/NavBar.css'
+import LoginModal from '../login/LoginModal'
+import './NavBar.css'
 
 const NavBar = () => {
     const loginState = useSelector(store => store.login)
     const [ loginVisible, setLoginVisible ] = useState(false)
-
-    //todo automatically focus LoginModal email
-    //todo dismiss modal on login, do this by redirecting?
 
     return (
         <div className='navBar'>
@@ -52,7 +50,7 @@ const LoginSignup = ({ setLoginVisible }) => {
     return (
         <div>
             <Button variant='outline-secondary' onClick={() => setLoginVisible(true)}>Login</Button>
-            <Button variant='outline-secondary'>Sign-up</Button>
+            <Link to='/sign-up'><Button variant='outline-secondary'>Sign-up</Button></Link>
         </div>
     )
 }

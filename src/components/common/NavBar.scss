@@ -1,8 +1,4 @@
-@use "colors";
-
-button {
-    margin-right: 12px;
-}
+@use "../../css/colors";
 
 .navBar {
     background: colors.$color-primary;
@@ -10,6 +6,10 @@ button {
     padding: 12px;
     display: flex;
     align-items: center;
+
+    button {
+        margin-right: 12px;
+    }
 }
 
 .userInfo {

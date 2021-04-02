@@ -1,6 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import loginService from '../services/login'
+import userService from '../services/user'
 import localStorage from '../services/localStorage'
+
+export const register = createAsyncThunk(
+    'login/register',
+    async ({ email, password, displayName}, { rejectWithValue }) => {
+        try {
+            return await userService.register(email, password, displayName)
+        } catch (e) {
+            return rejectWithValue(e.response.data.message)
+        }
+    }
+)
 
 export const login = createAsyncThunk(
     'login/login',
@@ -18,32 +30,25 @@ export const login = createAsyncThunk(
 export const loginSlice = createSlice({
     name: 'login',
     initialState: {
-        user: localStorage.getUser(),
-        error: null
+        user: localStorage.getUser()
     },
     reducers: {
-        resetError: (state) => {
-            state.error = null
-        },
         logout: (state) => {
             localStorage.setUser(null)
             state.user = null
-            state.error = null
         }
     },
     extraReducers: {
         [login.fulfilled]: (state, action) => {
             state.user = action.payload
-            state.error = null
         },
-        [login.rejected]: (state, action) => {
+        [login.rejected]: (state) => {
             state.user = null
-            state.error = action.payload
         }
     }
 })
 
 
-export const { resetError, logout } = loginSlice.actions
+export const { logout } = loginSlice.actions
 
 export default loginSlice.reducer
