@@ -49,16 +49,17 @@ const SignUp = () => {
     }
 
     const onSignUpComplete = async (enteredEmail, enteredPassword) => {
-        const result = dispatch(login({
+        const result = await dispatch(login({
             email: enteredEmail,
             password: enteredPassword
         }))
 
         switch (result.type) {
-        case login.fulfilled:
+        case login.fulfilled.toString():
+            console.log('sign up complete')
             history.push('/') //todo redirect to where you were?
             break
-        case login.rejected:
+        case login.rejected.toString():
             setError(result.payload)
             break
         }
