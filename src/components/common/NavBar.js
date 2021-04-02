@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useHistory, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import PropType from 'prop-types'
 
@@ -29,9 +30,12 @@ const NavBar = () => {
 
 const UserInfo = ({ user }) => {
     const dispatch = useDispatch()
+    const history = useHistory()
+    const location = useLocation()
 
     const onLogout = () => {
         dispatch(logout())
+        history.push(location.pathname)
     }
 
     return (
