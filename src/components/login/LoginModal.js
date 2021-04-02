@@ -70,9 +70,7 @@ const LoginModal = ({ visible, setVisible }) => {
                 <Visibility show={error !== null}>
                     <Alert variant='danger' dismissible onClose={dismissError}>{ error }</Alert>
                 </Visibility>
-                <Form
-
-                    onSubmit={onSubmitLogin}>
+                <Form onSubmit={onSubmitLogin}>
                     <Form.Group>
                         <Form.Label>Email:</Form.Label>
                         <Form.Control

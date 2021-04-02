@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+
 import useControlledInput from '../hooks/useControlledInput'
+
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
+import Form from 'react-bootstrap/Form'
 import Surround from '../common/Surround'
 import Visibility from '../common/Visibility'
 import './SignUp.css'
@@ -14,7 +17,8 @@ const SignUp = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const email = useControlledInput('text')
+    const loginState = useSelector(store => store.login)
+    const email = useControlledInput('email')
     const password = useControlledInput('password')
     const reEnterPassword = useControlledInput('password')
     const displayName = useControlledInput('text)')
@@ -71,42 +75,46 @@ const SignUp = () => {
                 <Visibility show={error !== null}>
                     <Alert variant='danger' dismissible onClose={() => setError(null)}>{ error }</Alert>
                 </Visibility>
-                <form onSubmit={onSignUpSubmit}>
-                    <div className='inputField'>
-                        <span>Email:</span>
-                        <input
+                <Form onSubmit={onSignUpSubmit}>
+                    <Form.Group>
+                        <Form.Label>Email:</Form.Label>
+                        <Form.Control
                             required
                             autoFocus
+                            type={email.type}
                             value={email.value}
                             onChange={email.onChange} />
-                    </div>
-                    <div className='inputField'>
-                        <span>Password:</span>
-                        <input
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Password:</Form.Label>
+                        <Form.Control
                             required
                             type={password.type}
                             value={password.value}
                             onChange={password.onChange} />
-                    </div>
-                    <div className='inputField'>
-                        <span>Re-enter Password:</span>
-                        <input
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Re-enter Password:</Form.Label>
+                        <Form.Control
                             required
                             type={reEnterPassword.type}
                             value={reEnterPassword.value}
                             onChange={reEnterPassword.onChange} />
-                    </div>
-                    <div className='inputField'>
-                        <span>Display Name:</span>
-                        <input
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Display Name:</Form.Label>
+                        <Form.Control
                             required
                             value={displayName.value}
                             onChange={displayName.onChange} />
-                    </div>
-                    <div className='buttons'>
-                        <Button type='submit' variant='secondary'>Complete Sign-up</Button>
-                    </div>
-                </form>
+                    </Form.Group>
+                    <Button
+                        type='submit'
+                        variant='secondary'
+                        disabled={loginState.pending}>
+                        { loginState.pending ? 'Signing up...' : 'Complete Sign-up' }
+                    </Button>
+                </Form>
             </Surround>
         </div>
     )
