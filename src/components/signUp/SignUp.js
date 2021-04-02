@@ -73,19 +73,34 @@ const SignUp = () => {
                 <form onSubmit={onSignUpSubmit}>
                     <div className='inputField'>
                         <span>Email:</span>
-                        <input required autoFocus {...email} />
+                        <input
+                            required
+                            autoFocus
+                            value={email.value}
+                            onChange={email.onChange} />
                     </div>
                     <div className='inputField'>
                         <span>Password:</span>
-                        <input required {...password} />
+                        <input
+                            required
+                            type={password.type}
+                            value={password.value}
+                            onChange={password.onChange} />
                     </div>
                     <div className='inputField'>
                         <span>Re-enter Password:</span>
-                        <input required {...reEnterPassword} />
+                        <input
+                            required
+                            type={reEnterPassword.type}
+                            value={reEnterPassword.value}
+                            onChange={reEnterPassword.onChange} />
                     </div>
                     <div className='inputField'>
                         <span>Display Name:</span>
-                        <input required {...displayName} />
+                        <input
+                            required
+                            value={displayName.value}
+                            onChange={displayName.onChange} />
                     </div>
                     <div className='buttons'>
                         <Button type='submit' variant='secondary'>Complete Sign-up</Button>

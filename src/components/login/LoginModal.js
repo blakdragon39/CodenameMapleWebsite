@@ -71,11 +71,19 @@ const LoginModal = ({ visible, setVisible }) => {
                 <form onSubmit={onSubmitLogin}>
                     <div className='inputField'>
                         <span>Email:</span>
-                        <input ref={focusRef} required {...email} />
+                        <input
+                            ref={focusRef}
+                            required
+                            value={email.value}
+                            onChange={email.onChange} />
                     </div>
                     <div className='inputField'>
                         <span>Password:</span>
-                        <input required {...password} />
+                        <input
+                            required
+                            type={password.type}
+                            value={password.value}
+                            onChange={password.onChange} />
                     </div>
                     <div className='buttons'>
                         <Button type='submit' variant='secondary'>Login</Button>
