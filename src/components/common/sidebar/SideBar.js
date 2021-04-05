@@ -6,7 +6,7 @@ import './SideBar.css'
 const SideBar = () => {
     return (
         <div className='sideBar'>
-            <CurrentPet />
+            <CurrentPet pet={'Arcanine'}/>
         </div>
     )
 }
