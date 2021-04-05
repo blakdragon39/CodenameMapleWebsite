@@ -13,19 +13,21 @@ function App() {
         <div>
             <BrowserRouter>
                 <NavBar />
-                <SideBar />
+                <div style={{ display: 'flex' }}>
+                    <SideBar />
 
-                <Switch>
-                    <Route exact path='/sign-up'>
-                        <SignUp />
-                    </Route>
-                    <Route exact path='/create-a-pet'>
-                        <CreateAPet />
-                    </Route>
-                    <Route exact path='/'>
-                        <Home />
-                    </Route>
-                </Switch>
+                    <Switch>
+                        <Route exact path='/sign-up'>
+                            <SignUp />
+                        </Route>
+                        <Route exact path='/create-a-pet'>
+                            <CreateAPet />
+                        </Route>
+                        <Route exact path='/'>
+                            <Home />
+                        </Route>
+                    </Switch>
+                </div>
             </BrowserRouter>
         </div>
     )

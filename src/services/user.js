@@ -8,7 +8,7 @@ const register = async (email, password, displayName) => {
 }
 
 const getPets = async (userId) => {
-    const response = await axios.get(`baseUrl/${userId}/pets`)
+    const response = await axios.get(`${baseUrl}/${userId}/pets`)
     return response.data
 }
 

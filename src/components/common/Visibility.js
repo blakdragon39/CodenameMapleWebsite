@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Visibility = ({ show, ...props }) => (
-    <>
-        {
-            show ? props.children : null
-        }
-    </>
-)
+const Visibility = ({ isVisible, children }) => {
+    return isVisible ? (
+        <>
+            { children }
+        </>
+    ) : null
+}
 
 Visibility.propTypes = {
-    show: PropTypes.bool.isRequired,
+    isVisible: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired
 }
 
