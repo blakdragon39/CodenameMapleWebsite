@@ -24,7 +24,6 @@ const SignUp = () => {
     const displayName = useControlledInput('text)')
     const [error, setError] = useState(null)
 
-    //todo loading states on this and login
     const onSignUpSubmit = async (event) => {
         event.preventDefault()
 
@@ -72,7 +71,7 @@ const SignUp = () => {
     return (
         <div className='content'>
             <Surround>
-                <Visibility show={error !== null}>
+                <Visibility isVisible={error !== null}>
                     <Alert variant='danger' dismissible onClose={() => setError(null)}>{ error }</Alert>
                 </Visibility>
                 <Form onSubmit={onSignUpSubmit}>

@@ -12,9 +12,7 @@ const CurrentPet = () => {
     const currentPet = useSelector(store => store.pets.currentPet)
     const user = useSelector(store => store.login.user)
 
-    console.log('user', user)
-
-    // useEffect(async () => await dispatch(getPets({ userId: user.id })), [])
+    useEffect(async () => await dispatch(getPets({ userId: user.id })), [])
 
     return (
         <div className='currentPet'>
