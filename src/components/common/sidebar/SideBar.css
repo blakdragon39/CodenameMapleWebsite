@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
   width: 264px;
+  min-width: 264px;
   background: #ffb703;
   padding: 32px;
   border-right: 8px solid;

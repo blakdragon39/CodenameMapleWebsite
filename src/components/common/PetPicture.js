@@ -9,7 +9,9 @@ const PetPicture = ({ pet }) => {
 
     return (
         <div className='petPicture'>
-            <img src={ pet ? PetSpecies[pet.species].picture : petImages.MissingNo } alt='Current Pet' />
+            <div className='petPictureBackground'>
+                <img src={ pet ? PetSpecies[pet.species].picture : petImages.MissingNo } alt='Current Pet' />
+            </div>
         </div>
     )
 }

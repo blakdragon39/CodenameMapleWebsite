@@ -6,6 +6,7 @@
     flex-direction: column;
     height: 100vh;
     width: dimens.$sidebar-width;
+    min-width: dimens.$sidebar-width;
     background: colors.$color-primary-highlight;
     padding: dimens.$sidebar-padding;
     border-right: 8px solid;

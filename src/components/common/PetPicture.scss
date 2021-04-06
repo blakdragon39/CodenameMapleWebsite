@@ -1,3 +1,5 @@
+@use "../../css/colors";
+
 .petPicture {
     height: 100%;
     width: 100%;
@@ -5,5 +7,15 @@
     img {
         height: 100%;
         width: 100%;
+        object-fit: contain;
     }
+}
+
+.petPictureBackground {
+    background-color: colors.$color-picture-background;
+    padding: 28px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: colors.$color-secondary;
+    border-radius: 50%;
 }
