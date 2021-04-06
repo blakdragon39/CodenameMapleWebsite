@@ -18,7 +18,7 @@ const LoginModal = ({ visible, setVisible }) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const loginState = useSelector(store => store.login)
+    const loginState = useSelector(store => store.loginState)
     const email = useControlledInput('email')
     const password = useControlledInput('password')
     const [error, setError] = useState(null)

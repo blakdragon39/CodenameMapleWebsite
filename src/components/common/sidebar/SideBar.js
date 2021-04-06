@@ -6,7 +6,7 @@ import CurrentPet from './CurrentPet'
 import './SideBar.css'
 
 const SideBar = () => {
-    const user = useSelector(store => store.login.user)
+    const user = useSelector(store => store.loginState.user)
 
     return (
         <Visibility isVisible={user != null}>

@@ -4,4 +4,12 @@
   align-self: center;
 }
 
+.currentPetName {
+  text-align: center;
+  color: #023047;
+}
+.currentPetName a {
+  color: #023047;
+}
+
 /*# sourceMappingURL=CurrentPet.css.map */

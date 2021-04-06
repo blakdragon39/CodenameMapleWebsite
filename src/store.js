@@ -5,7 +5,7 @@ import petReducer from './reducers/petReducer'
 
 export default configureStore({
     reducer: {
-        login: loginReducer,
-        pets: petReducer
+        loginState: loginReducer,
+        petState: petReducer
     }
 })

@@ -1,7 +1,17 @@
+@use "../../../css/colors";
 @use "../../../css/dimens";
 
 .currentPet {
     width: 100%;
     height: dimens.$current-pet-size;
     align-self: center;
+}
+
+.currentPetName {
+    text-align: center;
+    color: colors.$color-secondary;
+
+    a {
+        color: colors.$color-secondary;
+    }
 }

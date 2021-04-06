@@ -12,14 +12,22 @@ export const petSlice = createSlice({
     name: 'pets',
     initialState: {
         currentPet: null,
-        pets: []
+        pets: [],
+        pending: false
     },
     reducers: {
     },
     extraReducers: {
+        [getPets.pending]: (state) => {
+            state.pending = true
+        },
         [getPets.fulfilled]: (state, action) => {
             state.pets = action.payload
             state.currentPet = state.pets[0]
+            state.pending = false
+        },
+        [getPets.rejected]: (state) => {
+            state.pending = false
         }
     }
 })
