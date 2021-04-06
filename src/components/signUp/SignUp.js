@@ -17,14 +17,13 @@ const SignUp = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const loginState = useSelector(store => store.login)
+    const loginState = useSelector(store => store.loginState)
     const email = useControlledInput('email')
     const password = useControlledInput('password')
     const reEnterPassword = useControlledInput('password')
     const displayName = useControlledInput('text)')
     const [error, setError] = useState(null)
 
-    //todo loading states on this and login
     const onSignUpSubmit = async (event) => {
         event.preventDefault()
 
@@ -72,7 +71,7 @@ const SignUp = () => {
     return (
         <div className='content'>
             <Surround>
-                <Visibility show={error !== null}>
+                <Visibility isVisible={error !== null}>
                     <Alert variant='danger' dismissible onClose={() => setError(null)}>{ error }</Alert>
                 </Visibility>
                 <Form onSubmit={onSignUpSubmit}>

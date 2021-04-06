@@ -1,0 +1,20 @@
+.petPicture {
+  height: 100%;
+  width: 100%;
+}
+.petPicture img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.petPictureBackground {
+  background-color: whitesmoke;
+  padding: 28px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #023047;
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=PetPicture.css.map */

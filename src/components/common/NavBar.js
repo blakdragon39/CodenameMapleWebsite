@@ -11,7 +11,7 @@ import LoginModal from '../login/LoginModal'
 import './NavBar.css'
 
 const NavBar = () => {
-    const loginState = useSelector(store => store.login)
+    const loginState = useSelector(store => store.loginState)
     const [ loginVisible, setLoginVisible ] = useState(false)
 
     return (
