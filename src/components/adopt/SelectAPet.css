@@ -1,7 +1,7 @@
 .selectAPet {
   display: grid;
   grid-template-rows: repeat(4, 140px);
-  grid-template-columns: repeat(4, 140px);
+  grid-template-columns: 140px 160px 160px 140px;
   grid-template-areas: "cat selectedPet selectedPet dog" "rabbit selectedPet selectedPet cow" "horse selectedPet selectedPet dolphin" "dragon selectedPet selectedPet .";
   justify-items: stretch;
   align-items: stretch;

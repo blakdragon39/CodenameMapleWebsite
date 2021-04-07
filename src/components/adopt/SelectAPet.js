@@ -1,25 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
+
 import { PetSpecies } from '../../models/Pet'
 import petImages from '../../assets/pets'
 import './SelectAPet.css'
 
-const usePetImage = (className, species) => {
+const usePetImage = (className, species, setSelectedPet) => {
+    const onClick = () => setSelectedPet(species)
+
     return {
         props: {
             className,
-            src: species.picture
+            src: species.picture,
+            onClick
         },
     }
 }
 
-const SelectAPet = () => {
-    const cat = usePetImage('cat', PetSpecies.Cat)
-    const dog = usePetImage('dog', PetSpecies.Dog)
-    const rabbit = usePetImage('rabbit', PetSpecies.Rabbit)
-    const cow = usePetImage('cow', PetSpecies.Cow)
-    const horse = usePetImage('horse', PetSpecies.Horse)
-    const dolphin = usePetImage('dolphin', PetSpecies.Dolphin)
-    const dragon = usePetImage('dragon', PetSpecies.Dragon)
+//todo display species name somewhere
+const SelectAPet = ({ selectedPet, setSelectedPet }) => {
+    const cat = usePetImage('cat', PetSpecies.Cat, setSelectedPet)
+    const dog = usePetImage('dog', PetSpecies.Dog,setSelectedPet)
+    const rabbit = usePetImage('rabbit', PetSpecies.Rabbit,setSelectedPet)
+    const cow = usePetImage('cow', PetSpecies.Cow,setSelectedPet)
+    const horse = usePetImage('horse', PetSpecies.Horse,setSelectedPet)
+    const dolphin = usePetImage('dolphin', PetSpecies.Dolphin,setSelectedPet)
+    const dragon = usePetImage('dragon', PetSpecies.Dragon,setSelectedPet)
+
+    const selectedPetImage = selectedPet ? selectedPet.picture : petImages.MissingNo
 
     return (
         <div className='selectAPet'>
@@ -30,9 +38,14 @@ const SelectAPet = () => {
             <img { ...horse.props} alt='Adopt a horse' />
             <img { ...dolphin.props} alt='Adopt a dolphin' />
             <img { ...dragon.props} alt='Adopt a dragon' />
-            <img className='selectedPet' src={petImages.MissingNo} alt='Selected pet to adopt'/>
+            <img className='selectedPet' src={selectedPetImage} alt='Selected pet to adopt'/>
         </div>
     )
+}
+
+SelectAPet.propTypes = {
+    selectedPet: PropTypes.object.isRequired,
+    setSelectedPet: PropTypes.func.isRequired
 }
 
 export default SelectAPet
