@@ -2,7 +2,7 @@ import React from 'react'
 import './theme.css'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import AdoptAPet from './components/createpet/AdoptAPet'
+import AdoptAPet from './components/adopt/AdoptAPet'
 import Home from './components/Home'
 import NavBar from './components/common/NavBar'
 import SideBar from './components/common/sidebar/SideBar'
