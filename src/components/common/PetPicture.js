@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { PetSpecies } from '../../models/Pet'
-import petImages from '../../assets/pets/pets'
+import petImages from '../../assets/pets'
 import './PetPicture.css'
 
 const PetPicture = ({ pet }) => {

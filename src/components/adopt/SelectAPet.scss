@@ -1,12 +1,12 @@
-.adoptAPet {
+.selectAPet {
     display: grid;
     grid-template-rows: repeat(4, 140px);
     grid-template-columns: repeat(4, 140px);
     grid-template-areas:
-        "cat selectedPet selectedPet horse"
-        "dog selectedPet selectedPet dolphin"
-        "rabbit selectedPet selectedPet dragon"
-        "cow selectedPet selectedPet .";
+        "cat selectedPet selectedPet dog"
+        "rabbit selectedPet selectedPet cow"
+        "horse selectedPet selectedPet dolphin"
+        "dragon selectedPet selectedPet .";
     justify-items: stretch;
     align-items: stretch;
 }

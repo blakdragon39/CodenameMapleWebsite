@@ -16,6 +16,7 @@ function App() {
                 <div style={{ display: 'flex' }}>
                     <SideBar />
 
+                    {/* TODO redirect user to sign up if not logged in on appropriate pages */}
                     <Switch>
                         <Route exact path='/adopt-pet'>
                             <AdoptAPet />
