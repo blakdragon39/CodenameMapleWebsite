@@ -1,23 +1,14 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { PetSpecies } from '../../models/Pet'
 import petImages from '../../assets/pets'
 import './SelectAPet.css'
 
 const usePetImage = (className, species) => {
-    const [hovered, setHovered] = useState(false)
-
-    const onMouseEnter = () => setHovered(true)
-
-    const onMouseLeave = () => setHovered(false)
-
     return {
         props: {
-            className: `${className}`,
-            onMouseEnter,
-            onMouseLeave,
+            className,
             src: species.picture
         },
-        hovered
     }
 }
 

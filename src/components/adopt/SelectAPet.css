@@ -16,7 +16,15 @@
 }
 
 .dragon, .dolphin, .horse, .cow, .rabbit, .dog, .cat {
-  padding: 16px;
+  padding: 18px;
+  opacity: 0.5;
+}
+.dragon:hover, .dolphin:hover, .horse:hover, .cow:hover, .rabbit:hover, .dog:hover, .cat:hover {
+  padding: 14px;
+  border: 2px solid #023047;
+  border-radius: 4px;
+  opacity: 1;
+  background-color: whitesmoke;
 }
 
 .cat {

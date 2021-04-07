@@ -1,3 +1,5 @@
+@use "../../css/colors";
+
 .selectAPet {
     display: grid;
     grid-template-rows: repeat(4, 140px);
@@ -20,7 +22,16 @@
 }
 
 %petOption {
-    padding: 16px;
+    padding: 18px;
+    opacity: 0.5;
+
+    &:hover {
+        padding: 14px;
+        border: 2px solid colors.$color-secondary;
+        border-radius: 4px;
+        opacity: 1;
+        background-color: colors.$color-picture-background;
+    }
 }
 
 .cat {
