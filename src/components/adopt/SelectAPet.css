@@ -1,0 +1,58 @@
+.selectAPet {
+  display: grid;
+  grid-template-rows: repeat(4, 140px);
+  grid-template-columns: 140px 160px 160px 140px;
+  grid-template-areas: "cat selectedPet selectedPet dog" "rabbit selectedPet selectedPet cow" "horse selectedPet selectedPet dolphin" "dragon selectedPet selectedPet .";
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.selectedPet {
+  grid-area: selectedPet;
+  justify-self: stretch;
+  align-self: stretch;
+  object-fit: contain;
+  padding: 16px;
+}
+
+.dragon, .dolphin, .horse, .cow, .rabbit, .dog, .cat {
+  padding: 18px;
+  opacity: 0.5;
+}
+.dragon:hover, .dolphin:hover, .horse:hover, .cow:hover, .rabbit:hover, .dog:hover, .cat:hover {
+  padding: 14px;
+  border: 2px solid #023047;
+  border-radius: 4px;
+  opacity: 1;
+  background-color: whitesmoke;
+}
+
+.cat {
+  grid-area: cat;
+}
+
+.dog {
+  grid-area: dog;
+}
+
+.rabbit {
+  grid-area: rabbit;
+}
+
+.cow {
+  grid-area: cow;
+}
+
+.horse {
+  grid-area: horse;
+}
+
+.dolphin {
+  grid-area: dolphin;
+}
+
+.dragon {
+  grid-area: dragon;
+}
+
+/*# sourceMappingURL=SelectAPet.css.map */

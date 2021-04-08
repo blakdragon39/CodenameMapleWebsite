@@ -29,8 +29,8 @@ const LoginModal = ({ visible, setVisible }) => {
         e.preventDefault()
 
         const result = await dispatch(login({
-            email: email.value,
-            password: password.value
+            email: email.props.value,
+            password: password.props.value
         }))
 
         switch (result.type) {
@@ -76,17 +76,13 @@ const LoginModal = ({ visible, setVisible }) => {
                         <Form.Control
                             required
                             ref={focusRef}
-                            type={email.type}
-                            value={email.value}
-                            onChange={email.onChange}/>
+                            { ...email.props } />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Password:</Form.Label>
                         <Form.Control
                             required
-                            type={password.type}
-                            value={password.value}
-                            onChange={password.onChange} />
+                            { ...password.props } />
                     </Form.Group>
                     <div className='login-buttons'>
                         <Button

@@ -8,9 +8,11 @@ const useControlledInput = (type) => {
     const clear = () => setValue('')
 
     return {
-        type,
-        value,
-        onChange,
+        props: {
+            type,
+            value,
+            onChange
+        },
         clear
     }
 }

@@ -27,18 +27,20 @@ const SignUp = () => {
     const onSignUpSubmit = async (event) => {
         event.preventDefault()
 
-        const enteredEmail = email.value
-        const enteredPassword = password.value
+        const enteredEmail = email.props.value
+        const enteredPassword = password.props.value
+        const enteredReEnterPassword = reEnterPassword.props.value
+        const enteredDisplayname = displayName.props.value
 
-        if (password.value !== reEnterPassword.value) {
+        if (enteredPassword !== enteredReEnterPassword) {
             setError('Passwords do not match')
             return
         }
 
         const result = await dispatch(register({
-            password: password.value,
-            email: email.value,
-            displayName: displayName.value
+            password: enteredPassword,
+            email: enteredEmail,
+            displayName: enteredDisplayname
         }))
 
         switch (result.type) {
@@ -77,35 +79,19 @@ const SignUp = () => {
                 <Form onSubmit={onSignUpSubmit}>
                     <Form.Group>
                         <Form.Label>Email:</Form.Label>
-                        <Form.Control
-                            required
-                            autoFocus
-                            type={email.type}
-                            value={email.value}
-                            onChange={email.onChange} />
+                        <Form.Control required autoFocus{ ...email.props } />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Password:</Form.Label>
-                        <Form.Control
-                            required
-                            type={password.type}
-                            value={password.value}
-                            onChange={password.onChange} />
+                        <Form.Control required { ...password.props } />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Re-enter Password:</Form.Label>
-                        <Form.Control
-                            required
-                            type={reEnterPassword.type}
-                            value={reEnterPassword.value}
-                            onChange={reEnterPassword.onChange} />
+                        <Form.Control required { ...reEnterPassword.props } />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Display Name:</Form.Label>
-                        <Form.Control
-                            required
-                            value={displayName.value}
-                            onChange={displayName.onChange} />
+                        <Form.Control required { ...displayName.props } />
                     </Form.Group>
                     <Button
                         type='submit'

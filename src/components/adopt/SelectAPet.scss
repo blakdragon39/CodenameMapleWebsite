@@ -1,0 +1,70 @@
+@use "../../css/colors";
+
+.selectAPet {
+    display: grid;
+    grid-template-rows: repeat(4, 140px);
+    grid-template-columns: 140px 160px 160px 140px;
+    grid-template-areas:
+        "cat selectedPet selectedPet dog"
+        "rabbit selectedPet selectedPet cow"
+        "horse selectedPet selectedPet dolphin"
+        "dragon selectedPet selectedPet .";
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.selectedPet {
+    grid-area: selectedPet;
+    justify-self: stretch;
+    align-self: stretch;
+    object-fit: contain;
+    padding: 16px;
+}
+
+%petOption {
+    padding: 18px;
+    opacity: 0.5;
+
+    &:hover {
+        padding: 14px;
+        border: 2px solid colors.$color-secondary;
+        border-radius: 4px;
+        opacity: 1;
+        background-color: colors.$color-picture-background;
+    }
+}
+
+.cat {
+    @extend %petOption;
+    grid-area: cat;
+}
+
+.dog {
+    @extend %petOption;
+    grid-area: dog;
+}
+
+.rabbit {
+    @extend %petOption;
+    grid-area: rabbit;
+}
+
+.cow {
+    @extend %petOption;
+    grid-area: cow;
+}
+
+.horse {
+    @extend %petOption;
+    grid-area: horse;
+}
+
+.dolphin {
+    @extend %petOption;
+    grid-area: dolphin;
+}
+
+.dragon {
+    @extend %petOption;
+    grid-area: dragon;
+}
