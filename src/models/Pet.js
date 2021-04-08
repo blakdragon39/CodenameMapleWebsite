@@ -2,31 +2,31 @@ import pets from '../assets/pets'
 
 export const PetSpecies = {
     Cat: {
-        name: 'Catto',
+        species: 'Cat',
         picture: pets.Espeon
     },
     Dog: {
-        name: 'Doggo',
+        species: 'Dog',
         picture: pets.Arcanine
     },
     Rabbit: {
-        name: 'Bunno',
+        species: 'Rabbit',
         picture: pets.Lopunny
     },
     Cow: {
-        name: 'Moomo',
+        species: 'Cow',
         picture: pets.Miltank
     },
     Horse: {
-        name: 'Horso',
+        species: 'Horse',
         picture: pets.Rapidash
     },
     Dolphin: {
-        name: 'Flippo',
+        species: 'Dolphin',
         picture: pets.Dewgong
     },
     Dragon: {
-        name: 'Awesome McCool',
+        species: 'Dragon',
         picture: pets.Garchomp
     }
 }

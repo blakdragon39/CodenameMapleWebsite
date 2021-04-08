@@ -1,10 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import userService from '../services/user'
+import petService from '../services/pets'
 
 export const getPets = createAsyncThunk(
     'pets/get',
     async ({ userId }) => {
         return await userService.getPets(userId)
+    }
+)
+
+export const createPet = createAsyncThunk(
+    'pets/create',
+    async ({ userToken, userId, name, species }) => {
+        console.log('async thunk', species)
+        return await petService.createPet(userToken, userId, name, species)
     }
 )
 

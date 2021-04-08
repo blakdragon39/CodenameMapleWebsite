@@ -44,7 +44,7 @@ const SelectAPet = ({ selectedPet, setSelectedPet }) => {
 }
 
 SelectAPet.propTypes = {
-    selectedPet: PropTypes.object.isRequired,
+    selectedPet: PropTypes.object,
     setSelectedPet: PropTypes.func.isRequired
 }
 
