@@ -16,6 +16,7 @@ const AdoptAPet = () => {
     const petName = useControlledInput('text')
 
     const user = useSelector(store => store.loginState.user)
+    const petState = useSelector(store => store.petState)
 
     const dispatch = useDispatch()
 
@@ -40,7 +41,12 @@ const AdoptAPet = () => {
                             <Form.Label>Give it a name!</Form.Label>
                             <Form.Control { ...petName.props } />
                         </Form.Group>
-                        <Button type='submit' variant='secondary'>Adopt this pet!</Button>
+                        <Button
+                            type='submit'
+                            variant='secondary'
+                            disabled={petState.adoptionPending}>
+                            { petState.adoptionPending ? 'Adopting...' : 'Adopt this pet!' }
+                        </Button>
                     </Form>
                 </Surround>
             </Visibility>

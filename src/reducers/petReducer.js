@@ -12,7 +12,6 @@ export const getPets = createAsyncThunk(
 export const createPet = createAsyncThunk(
     'pets/create',
     async ({ userToken, userId, name, species }) => {
-        console.log('async thunk', species)
         return await petService.createPet(userToken, userId, name, species)
     }
 )
@@ -22,7 +21,8 @@ export const petSlice = createSlice({
     initialState: {
         currentPet: null,
         pets: [],
-        pending: false
+        pending: false,
+        adoptionPending: false
     },
     reducers: {
     },
@@ -37,6 +37,16 @@ export const petSlice = createSlice({
         },
         [getPets.rejected]: (state) => {
             state.pending = false
+        },
+        [createPet.pending]: (state) => {
+            state.adoptionPending = true
+        },
+        [createPet.fulfilled]: (state, action) => {
+            state.pets.push(action.payload)
+            state.adoptionPending = false
+        },
+        [createPet.rejected]: (state) => {
+            state.adoptionPending = false
         }
     }
 })
