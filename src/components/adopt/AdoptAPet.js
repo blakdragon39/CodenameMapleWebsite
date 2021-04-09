@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import { createPet } from '../../reducers/petReducer'
+import useUser from '../hooks/useUser'
 
 import SelectAPet from './SelectAPet'
 import Surround from '../common/Surround'
@@ -15,7 +16,7 @@ const AdoptAPet = () => {
     const [selectedPet, setSelectedPet] = useState(null)
     const petName = useControlledInput('text')
 
-    const user = useSelector(store => store.loginState.user)
+    const user = useUser()
     const petState = useSelector(store => store.petState)
 
     const dispatch = useDispatch()

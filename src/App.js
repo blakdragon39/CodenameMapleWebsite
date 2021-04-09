@@ -1,7 +1,8 @@
 import React from 'react'
 import './theme.css'
-
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+import AuthRequired from './components/common/AuthRequired'
 import AdoptAPet from './components/adopt/AdoptAPet'
 import Home from './components/Home'
 import NavBar from './components/common/NavBar'
@@ -18,9 +19,9 @@ function App() {
 
                     {/* TODO redirect user to sign up if not logged in on appropriate pages */}
                     <Switch>
-                        <Route exact path='/adopt-pet'>
+                        <AuthRequired exact path='/adopt-pet'>
                             <AdoptAPet />
-                        </Route>
+                        </AuthRequired>
                         <Route exact path='/sign-up'>
                             <SignUp />
                         </Route>
