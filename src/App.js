@@ -8,6 +8,7 @@ import Home from './components/Home'
 import NavBar from './components/common/NavBar'
 import SideBar from './components/common/sidebar/SideBar'
 import SignUp from './components/signUp/SignUp'
+import PetList from './components/mypets/PetList'
 
 function App() {
     return (
@@ -17,17 +18,19 @@ function App() {
                 <div style={{ display: 'flex' }}>
                     <SideBar />
 
-                    {/* TODO redirect user to sign up if not logged in on appropriate pages */}
                     <Switch>
-                        <AuthRequired exact path='/adopt-pet'>
-                            <AdoptAPet />
-                        </AuthRequired>
                         <Route exact path='/sign-up'>
                             <SignUp />
                         </Route>
                         <Route exact path='/'>
                             <Home />
                         </Route>
+                        <AuthRequired exact path='/adopt-pet'>
+                            <AdoptAPet />
+                        </AuthRequired>
+                        <AuthRequired exact path='/my-pets'>
+                            <PetList />
+                        </AuthRequired>
                     </Switch>
                 </div>
             </BrowserRouter>

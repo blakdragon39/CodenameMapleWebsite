@@ -1,6 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
+import { useSelector } from 'react-redux'
 import Visibility from '../Visibility'
 import CurrentPet from './CurrentPet'
 import './SideBar.css'
@@ -11,7 +12,9 @@ const SideBar = () => {
     return (
         <Visibility isVisible={user != null}>
             <div className='sideBar'>
-                <CurrentPet />
+                <Link to='/my-pets'>
+                    <CurrentPet />
+                </Link>
             </div>
         </Visibility>
     )

@@ -1,0 +1,19 @@
+@use "../../css/colors";
+
+.petCard {
+    display: flex;
+    flex-direction: column;
+    border: 2px dashed colors.$color-secondary;
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 24px;
+    margin-left: 24px;
+    text-align: center;
+
+    color: colors.$color-secondary;
+
+    img {
+        height: 240px;
+        width: 240px;
+    }
+}
