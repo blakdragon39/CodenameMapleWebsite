@@ -7,6 +7,8 @@ import './PetPicture.css'
 
 const PetPicture = ({ pet }) => {
 
+    console.log('pet', pet)
+
     return (
         <div className='petPicture'>
             <div className='petPictureBackground'>

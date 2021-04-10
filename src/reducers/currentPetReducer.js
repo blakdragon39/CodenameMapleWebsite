@@ -8,6 +8,13 @@ export const getCurrentPet = createAsyncThunk(
     }
 )
 
+export const setCurrentPet = createAsyncThunk(
+    'currentPet/set',
+    async ({ userToken, userId, petId}) => {
+        return await userPetsService.setCurrentPet(userToken, userId, petId)
+    }
+)
+
 const currentPetSlice = createSlice({
     name: 'currentPet',
     initialState: {
@@ -24,6 +31,9 @@ const currentPetSlice = createSlice({
         },
         [getCurrentPet.rejected]: (state) => {
             state.pending = false
+        },
+        [setCurrentPet.fulfilled]: (state, action) => {
+            state.pet = action.payload
         }
     }
 })

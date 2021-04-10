@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import { createPet } from '../../reducers/petReducer'
+import { setCurrentPet } from '../../reducers/currentPetReducer'
 import { useUser } from '../hooks/userHooks'
 
 import SelectAPet from './SelectAPet'
@@ -25,11 +26,18 @@ const AdoptAPet = () => {
 
     const submitCreatePet = async (e) => {
         e.preventDefault()
-        await dispatch(createPet({
+
+        const result = await dispatch(createPet({
             userToken: user.token,
             userId: user.id,
             name: petName.props.value,
             species: selectedPet.species
+        }))
+
+        await dispatch(setCurrentPet({
+            userToken: user.token,
+            userId: user.id,
+            petId: result.payload.id
         }))
 
         history.push('/my-pets')
