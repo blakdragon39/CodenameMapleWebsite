@@ -1,17 +1,22 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import { useUser, useCurrentPet } from '../../hooks/userHooks'
 
 import Visibility from '../Visibility'
 import CurrentPet from './CurrentPet'
 import './SideBar.css'
 
 const SideBar = () => {
-    const user = useSelector(store => store.loginState.user)
+    const user = useUser()
+    const currentPet = useCurrentPet()
 
     return (
         <Visibility isVisible={user != null}>
             <div className='sideBar'>
-                <CurrentPet />
+                <Link to={currentPet ? '/my-pets' : '/adopt-pet'}>
+                    <CurrentPet />
+                </Link>
             </div>
         </Visibility>
     )

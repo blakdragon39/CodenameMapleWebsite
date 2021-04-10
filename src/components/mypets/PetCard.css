@@ -1,0 +1,17 @@
+.petCard {
+  display: flex;
+  flex-direction: column;
+  border: 2px dashed #023047;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 24px;
+  margin-left: 24px;
+  text-align: center;
+  color: #023047;
+}
+.petCard img {
+  height: 240px;
+  width: 240px;
+}
+
+/*# sourceMappingURL=PetCard.css.map */

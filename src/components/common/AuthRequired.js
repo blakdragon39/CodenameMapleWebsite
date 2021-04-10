@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import useUser from '../hooks/useUser'
+import { useUser } from '../hooks/userHooks'
 
 const AuthRequired = ({ children, ...rest }) => {
     const user = useUser()

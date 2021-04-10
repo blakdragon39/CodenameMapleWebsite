@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import { createPet } from '../../reducers/petReducer'
-import useUser from '../hooks/useUser'
+import { useUser } from '../hooks/userHooks'
 
 import SelectAPet from './SelectAPet'
 import Surround from '../common/Surround'
@@ -20,6 +21,7 @@ const AdoptAPet = () => {
     const petState = useSelector(store => store.petState)
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const submitCreatePet = async (e) => {
         e.preventDefault()
@@ -29,6 +31,8 @@ const AdoptAPet = () => {
             name: petName.props.value,
             species: selectedPet.species
         }))
+
+        history.push('/my-pets')
     }
 
     return (
