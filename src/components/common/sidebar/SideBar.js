@@ -12,7 +12,7 @@ const SideBar = () => {
     return (
         <Visibility isVisible={user != null}>
             <div className='sideBar'>
-                <Link to='/my-pets'>
+                <Link to={user.currentPetId ? '/my-pets' : '/adopt-pet'}>
                     <CurrentPet />
                 </Link>
             </div>

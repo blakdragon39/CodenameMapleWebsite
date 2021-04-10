@@ -7,10 +7,5 @@ const register = async (email, password, displayName) => {
     return response.data
 }
 
-const getPets = async (userId) => {
-    const response = await axios.get(`${baseUrl}/${userId}/pets`)
-    return response.data
-}
-
-const userService = { register, getPets }
+const userService = { register }
 export default userService

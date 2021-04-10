@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { getPets } from '../../../reducers/petReducer'
+import { useUser, useCurrentPet } from '../../hooks/userHooks'
 
 import PetPicture from '../PetPicture'
 import './CurrentPet.css'
@@ -11,7 +11,8 @@ const CurrentPet = () => {
     const dispatch = useDispatch()
 
     const petState = useSelector(store => store.petState)
-    const user = useSelector(store => store.loginState.user)
+    const user = useUser()
+    const currentPet = useCurrentPet()
 
     useEffect(async () => await dispatch(getPets({ userId: user.id })), [])
 
@@ -19,15 +20,15 @@ const CurrentPet = () => {
 
     if (petState.pending) {
         nameDiv = '...'
-    } else if (!petState.currentPet) {
-        nameDiv = (<Link to='/adopt-pet'>Adopt a New Pet!</Link>)
+    } else if (!currentPet) {
+        nameDiv = 'Adopt a New Pet!'
     } else {
-        nameDiv = petState.currentPet.name
+        nameDiv = currentPet.name
     }
 
     return (
         <div className='currentPet'>
-            <PetPicture pet={petState.currentPet} />
+            <PetPicture pet={currentPet} />
             <div className='currentPetName'>{ nameDiv }</div>
         </div>
     )

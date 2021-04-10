@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import PropType from 'prop-types'
 
 import { logout } from '../../reducers/loginReducer'
+import { useUser } from '../hooks/userHooks'
 
 import Button from 'react-bootstrap/Button'
 import LoginModal from '../login/LoginModal'
 import './NavBar.css'
 
 const NavBar = () => {
-    const loginState = useSelector(store => store.loginState)
+    const user = useUser()
     const [ loginVisible, setLoginVisible ] = useState(false)
 
     return (
         <div className='navBar'>
             {
-                loginState.user ?
-                    <UserInfo user={loginState.user} /> :
+                user ?
+                    <UserInfo user={user} /> :
                     <LoginSignup setLoginVisible={setLoginVisible} />
             }
             <LoginModal
