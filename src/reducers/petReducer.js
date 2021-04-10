@@ -15,7 +15,7 @@ export const createPet = createAsyncThunk(
     }
 )
 
-export const petSlice = createSlice({
+const petSlice = createSlice({
     name: 'pets',
     initialState: {
         pets: [],

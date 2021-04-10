@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getPets } from '../../../reducers/petReducer'
-import { useUser, useCurrentPet } from '../../hooks/userHooks'
+import { getCurrentPet } from '../../../reducers/currentPetReducer'
+import { useUser } from '../../hooks/userHooks'
 
 import PetPicture from '../PetPicture'
 import './CurrentPet.css'
@@ -10,15 +10,15 @@ import './CurrentPet.css'
 const CurrentPet = () => {
     const dispatch = useDispatch()
 
-    const petState = useSelector(store => store.petState)
+    const currentPetState = useSelector(store => store.currentPetState)
     const user = useUser()
-    const currentPet = useCurrentPet()
+    const currentPet = currentPetState.pet
 
-    useEffect(async () => await dispatch(getPets({ userId: user.id })), [])
+    useEffect(async () => await dispatch(getCurrentPet({ userId: user.id })), [])
 
     let nameDiv
 
-    if (petState.pending) {
+    if (currentPetState.pending) {
         nameDiv = '...'
     } else if (!currentPet) {
         nameDiv = 'Adopt a New Pet!'

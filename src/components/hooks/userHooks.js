@@ -5,8 +5,5 @@ export const useUser = () => {
 }
 
 export const useCurrentPet = () => {
-    const user = useUser()
-    const pets = useSelector(store => store.petState.pets)
-
-    return pets.find(pet => pet.id === user.currentPetId)
+    return useSelector(store => store.currentPetState.pet)
 }

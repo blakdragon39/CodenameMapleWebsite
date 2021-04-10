@@ -16,5 +16,15 @@ const createPet = async (userToken, userId, name, species) => {
     return response.data
 }
 
-const userPetsService = { getPets, createPet }
+const getCurrentPet = async (userId) => {
+    const response = await axios.get(`${baseUrl(userId)}/current/`)
+    return response.data ? response.data : null
+}
+
+const setCurrentPet = async (userToken, userId, petId) => {
+    const response = await axios.post(`${baseUrl(userId)}/current/${petId}`, { petId: petId }, authHeader(userToken))
+    return response.data
+}
+
+const userPetsService = { getPets, createPet, getCurrentPet, setCurrentPet }
 export default userPetsService
