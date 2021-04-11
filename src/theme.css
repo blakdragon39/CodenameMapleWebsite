@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.main {
+  position: absolute;
+  top: 64px;
+  left: 264px;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

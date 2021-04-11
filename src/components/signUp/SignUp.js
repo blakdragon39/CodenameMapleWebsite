@@ -61,7 +61,6 @@ const SignUp = () => {
 
         switch (result.type) {
         case login.fulfilled.toString():
-            console.log('sign up complete')
             history.push('/') //todo redirect to where you were?
             break
         case login.rejected.toString():

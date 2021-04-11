@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["NavBar.scss","../../css/colors.scss"],"names":[],"mappings":"AAEA;EACI,YCHY;EDIZ;EACA;EACA;EACA;;AAEA;EACI;;;AAIR;EACI;EACA;EACA;EACA","file":"NavBar.css"}
+{"version":3,"sourceRoot":"","sources":["NavBar.scss","../../css/dimens.scss","../../css/colors.scss"],"names":[],"mappings":"AAGA;EACI;EACA;EAEA,QCLY;EDMZ;EACA;EAEA;EACA;EAEA,YEdY;;AFgBZ;EACI;;;AAIR;EACI;EACA;EACA;EACA","file":"NavBar.css"}

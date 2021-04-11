@@ -1,7 +1,14 @@
 @use "css/colors";
+@use "css/dimens";
 
 $primary: colors.$color-primary;
 $secondary: colors.$color-secondary;
 $body-bg: colors.$color-background;
+
+.main {
+    position: absolute;
+    top: dimens.$navBar-height;
+    left: dimens.$sidebar-width;
+}
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';

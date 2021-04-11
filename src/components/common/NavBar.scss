@@ -1,11 +1,18 @@
 @use "../../css/colors";
+@use "../../css/dimens";
 
 .navBar {
-    background: colors.$color-primary;
-    height: 64px;
+    position: fixed;
+    top: 0;
+
+    height: dimens.$navBar-height;
+    width: 100%;
     padding: 12px;
+
     display: flex;
     align-items: center;
+
+    background: colors.$color-primary;
 
     button {
         margin-right: 12px;

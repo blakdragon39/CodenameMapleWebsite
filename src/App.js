@@ -14,10 +14,7 @@ function App() {
     return (
         <div>
             <BrowserRouter>
-                <NavBar />
-                <div style={{ display: 'flex' }}>
-                    <SideBar />
-
+                <div className='main'>
                     <Switch>
                         <Route exact path='/sign-up'>
                             <SignUp />
@@ -33,6 +30,9 @@ function App() {
                         </AuthRequired>
                     </Switch>
                 </div>
+
+                <NavBar />
+                <SideBar />
             </BrowserRouter>
         </div>
     )

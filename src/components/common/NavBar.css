@@ -1,9 +1,12 @@
 .navBar {
-  background: #fb8500;
+  position: fixed;
+  top: 0;
   height: 64px;
+  width: 100%;
   padding: 12px;
   display: flex;
   align-items: center;
+  background: #fb8500;
 }
 .navBar button {
   margin-right: 12px;

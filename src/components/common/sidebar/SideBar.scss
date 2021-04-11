@@ -2,13 +2,18 @@
 @use "../../../css/dimens";
 
 .sideBar {
-    display: flex;
-    flex-direction: column;
+    position: fixed;
+    top: dimens.$navBar-height;
+
     height: 100vh;
     width: dimens.$sidebar-width;
     min-width: dimens.$sidebar-width;
-    background: colors.$color-primary-highlight;
     padding: dimens.$sidebar-padding;
+
+    display: flex;
+    flex-direction: column;
+
+    background: colors.$color-primary-highlight;
     border-right: 8px solid;
     border-color: colors.$color-primary;
 }
