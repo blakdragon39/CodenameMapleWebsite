@@ -7,21 +7,33 @@ import petImages from '../../assets/pets'
 import './PetCard.css'
 
 const PetCard = ({ pet }) => {
+    return pet ? (<MyPetCard pet={pet} />) : (<NewPetCard />)
+}
 
+const MyPetCard = ({ pet }) => {
+    return (
+        <Link to={`/my-pets/${pet.id}`} className='petCard'>
+            <img src={ pet ? PetSpecies[pet.species].picture : petImages.MissingNo } alt={pet.name} />
+            { pet.name }
+        </Link>
+    )
+}
+
+const NewPetCard = () => {
     return (
         <Link to='/adopt-pet' className='petCard'>
-            <img src={ pet ? PetSpecies[pet.species].picture : petImages.MissingNo } alt='Pet image' />
-            {
-                pet ?
-                    pet.name :
-                    'Adopt a New Pet'
-            }
+            <img src={petImages.MissingNo} alt='Adopt a New Pet' />
+            Adopt a New Pet
         </Link>
     )
 }
 
 PetCard.propTypes = {
     pet: PropTypes.object
+}
+
+MyPetCard.propTypes = {
+    pet: PropTypes.object.isRequired
 }
 
 export default PetCard
