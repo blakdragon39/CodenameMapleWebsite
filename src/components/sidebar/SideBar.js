@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { useUser, useCurrentPet } from '../../hooks/userHooks'
-import routes from '../../../routes'
+import { useUser, useCurrentPet } from '../hooks/userHooks'
+import routes from '../../routes'
 
-import Visibility from '../Visibility'
+import Visibility from '../common/Visibility'
 import CurrentPet from './CurrentPet'
 import './SideBar.css'
 
