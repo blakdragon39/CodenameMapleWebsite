@@ -70,7 +70,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className='content'>
+        <div className='signUp'>
             <Surround>
                 <Visibility isVisible={error !== null}>
                     <Alert variant='danger' dismissible onClose={() => setError(null)}>{ error }</Alert>

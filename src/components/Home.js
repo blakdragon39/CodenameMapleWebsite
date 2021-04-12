@@ -1,6 +1,7 @@
 import React  from 'react'
-import './Home.css'
+
 import { PetSpecies } from '../models/Pet'
+
 import PetPicture from './common/PetPicture'
 import VerticalSpace from './common/VerticalSpace'
 
@@ -8,7 +9,7 @@ const Home = () => {
     const petsPreview = Object.keys(PetSpecies).map((species,) => PetSpecies[species])
 
     return (
-        <div className='home'>
+        <div>
             TODO!<br />
             - sign up/login sharing the same pending flag<br />
             - choose a current pet<br />

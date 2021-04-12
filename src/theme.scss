@@ -9,6 +9,7 @@ $body-bg: colors.$color-background;
     position: absolute;
     top: dimens.$navBar-height;
     left: dimens.$sidebar-width;
+    padding: 32px;
 }
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
