@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
+import routes from '../../routes'
+
 import { PetSpecies } from '../../models/Pet'
 import petImages from '../../assets/pets'
 import './PetCard.css'
@@ -21,7 +23,7 @@ const MyPetCard = ({ pet }) => {
 
 const NewPetCard = () => {
     return (
-        <Link to='/adopt-pet' className='petCard'>
+        <Link to={routes.adoptPet} className='petCard'>
             <img src={petImages.MissingNo} alt='Adopt a New Pet' />
             Adopt a New Pet
         </Link>

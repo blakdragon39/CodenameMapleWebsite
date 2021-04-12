@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button'
 import { createPet } from '../../reducers/petReducer'
 import { setCurrentPet } from '../../reducers/currentPetReducer'
 import { useUser } from '../hooks/userHooks'
+import routes from '../../routes'
 
 import SelectAPet from './SelectAPet'
 import Surround from '../common/Surround'
@@ -41,7 +42,7 @@ const AdoptAPet = () => {
             petId: result.payload.id
         }))
 
-        history.push('/my-pets')
+        history.push(routes.myPets)
     }
 
     return (

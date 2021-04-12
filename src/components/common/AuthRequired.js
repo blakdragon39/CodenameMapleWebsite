@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { useUser } from '../hooks/userHooks'
+import routes from '../../routes'
 
 const AuthRequired = ({ children, ...rest }) => {
     const user = useUser()
@@ -14,7 +15,7 @@ const AuthRequired = ({ children, ...rest }) => {
                 user ?
                     (children) :
                     (<Redirect to={{
-                        pathname: '/sign-up',
+                        pathname: routes.signUp,
                         state: { from: location }
                     }}/>)
             } />
