@@ -2,6 +2,7 @@ import React  from 'react'
 import './Home.css'
 import { PetSpecies } from '../models/Pet'
 import PetPicture from './common/PetPicture'
+import VerticalSpace from './common/VerticalSpace'
 
 const Home = () => {
     const petsPreview = Object.keys(PetSpecies).map((species,) => PetSpecies[species])
@@ -18,7 +19,13 @@ const Home = () => {
                 A work in progress, with placeholder art<br />
                 Adopt these pets:
                 {
-                    petsPreview.map(preview => <PetPicture pet={preview} key={preview.species} />)
+                    petsPreview.map(preview => (
+                        <div style={{ padding: 16, textAlign: 'center' }} key={preview.species}>
+                            <b>{ preview.species }</b>
+                            <VerticalSpace height={16} />
+                            <PetPicture pet={preview} />
+                        </div>
+                    ))
                 }
             </div>
         </div>

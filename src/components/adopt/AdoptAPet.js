@@ -13,6 +13,7 @@ import Surround from '../common/Surround'
 import useControlledInput from '../hooks/useControlledInput'
 import Visibility from '../common/Visibility'
 import VerticalSpace from '../common/VerticalSpace'
+import './AdoptAPet.css'
 
 const AdoptAPet = () => {
     const [selectedPet, setSelectedPet] = useState(null)
@@ -44,10 +45,11 @@ const AdoptAPet = () => {
     }
 
     return (
-        <div style={{ padding: 32 }}>
+        <div className='adoptAPet'>
             <SelectAPet selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
             <VerticalSpace height={24} />
             <Visibility isVisible={selectedPet != null}>
+                <div className='speciesTitle'>{ selectedPet.species }</div>
                 <Surround>
                     <Form onSubmit={submitCreatePet}>
                         <Form.Group>

@@ -19,15 +19,16 @@ function App() {
                         <Route exact path='/sign-up'>
                             <SignUp />
                         </Route>
-                        <Route exact path='/'>
-                            <Home />
-                        </Route>
                         <AuthRequired exact path='/adopt-pet'>
                             <AdoptAPet />
                         </AuthRequired>
                         <AuthRequired exact path='/my-pets'>
                             <PetList />
                         </AuthRequired>
+
+                        <Route path='/'>
+                            <Home />
+                        </Route>
                     </Switch>
                 </div>
 
