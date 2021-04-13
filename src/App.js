@@ -2,6 +2,7 @@ import React from 'react'
 import './theme.css'
 import { Route, Switch } from 'react-router-dom'
 
+import { useUser } from './components/hooks/userHooks'
 import routes from './routes'
 
 import AuthRequired from './components/common/AuthRequired'
@@ -12,12 +13,14 @@ import SideBar from './components/sidebar/SideBar'
 import SignUp from './components/signUp/SignUp'
 import PetList from './components/mypets/PetList'
 import NotFound from './components/NotFound'
-import MyPet from './components/mypets/MyPet'
+import PetDetails from './components/mypets/PetDetails'
 
 function App() {
+    const className = `main ${useUser() ? 'sideBarOpen' : ''}`
+
     return (
         <div>
-            <div className='main'>
+            <div className={className}>
                 <Switch>
                     <AuthRequired exact path={routes.adoptPet}>
                         <AdoptAPet />
@@ -26,7 +29,7 @@ function App() {
                         <PetList />
                     </AuthRequired>
                     <AuthRequired exact path={routes.myPetId}>
-                        <MyPet />
+                        <PetDetails />
                     </AuthRequired>
 
                     <Route exact path={routes.signUp}>

@@ -8,8 +8,11 @@ $body-bg: colors.$color-background;
 .main {
     position: absolute;
     top: dimens.$navBar-height;
-    left: dimens.$sidebar-width;
     padding: 32px;
+}
+
+.sideBarOpen {
+    left: dimens.$sidebar-width;
 }
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';

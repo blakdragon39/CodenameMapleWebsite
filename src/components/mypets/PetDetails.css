@@ -1,0 +1,24 @@
+.petDetails {
+  width: 600px;
+}
+.petDetails .petPicture {
+  width: 250px;
+}
+
+.petDetailsGrid {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(2, 300px);
+  grid-template-areas: "detailsPicture detailsStats" "details .";
+}
+
+.detailsPicture {
+  justify-self: center;
+}
+
+.details {
+  text-align: center;
+  margin-top: 16px;
+}
+
+/*# sourceMappingURL=PetDetails.css.map */
