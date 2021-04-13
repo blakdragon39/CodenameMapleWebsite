@@ -1,4 +1,4 @@
-import pets from '../assets/pets'
+import pets from '../assets/pets/petImages'
 
 export const PetSpecies = {
     Cat: {

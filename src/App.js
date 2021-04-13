@@ -11,9 +11,9 @@ import Home from './components/Home'
 import NavBar from './components/common/NavBar'
 import SideBar from './components/sidebar/SideBar'
 import SignUp from './components/signUp/SignUp'
-import PetList from './components/mypets/PetList'
+import PetList from './components/pets/PetList'
 import NotFound from './components/NotFound'
-import PetDetails from './components/mypets/PetDetails'
+import PetDetails from './components/pets/PetDetails'
 
 function App() {
     const className = `main ${useUser() ? 'sideBarOpen' : ''}`
