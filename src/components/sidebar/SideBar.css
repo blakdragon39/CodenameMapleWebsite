@@ -11,5 +11,9 @@
   border-right: 8px solid;
   border-color: #fb8500;
 }
+.sideBar .sideBarLink {
+  padding-top: 16px;
+  color: #023047;
+}
 
 /*# sourceMappingURL=SideBar.css.map */
