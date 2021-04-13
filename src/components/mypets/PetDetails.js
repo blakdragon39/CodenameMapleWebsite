@@ -40,9 +40,6 @@ const PetDetails = () => {
     }
 
     const isCurrentPet = currentPet != null && pet != null && currentPet.id === pet.id
-    console.log('current pet id', currentPet ?  currentPet.id : null)
-    console.log('viewing pet id', pet ? pet.id : null)
-    console.log('is current?', isCurrentPet)
 
     if (pet) {
         return (
