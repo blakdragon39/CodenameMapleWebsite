@@ -11,8 +11,9 @@ import { useUser, useCurrentPet } from '../hooks/userHooks'
 import NotFound from '../NotFound'
 import Surround from '../common/Surround'
 import PetPicture from '../common/PetPicture'
-import './PetDetails.css'
 import VerticalSpace from '../common/VerticalSpace'
+import Wellbeing from './wellbeing/Wellbeing'
+import './PetDetails.css'
 
 const PetDetails = () => {
     const [pet, setPet] = useState(null)
@@ -45,14 +46,18 @@ const PetDetails = () => {
         return (
             <div className='petDetails'>
                 <Surround>
-                    <div className='petDetailsGrid'>
-                        <div className='detailsPicture'><PetPicture pet={pet} /></div>
-                        <div className='detailsStats' />
-                        <div className='details'>
-                            <div><b>{ pet.name }</b></div>
-                            <div>{ pet.species }</div>
-                            <VerticalSpace height={8} />
-                            { !isCurrentPet ? <Button onClick={makePetActive}>Make Me Your Active Pet!</Button> : null }
+                    <div className='petDetailsInner'>
+                        <div className='petDetailsColumn1'>
+                            <div><PetPicture pet={pet} /></div>
+                            <div className='petDetailsAbout'>
+                                <b>{ pet.name }</b>
+                                { pet.species }
+                                <VerticalSpace height={8} />
+                                { !isCurrentPet ? <Button onClick={makePetActive}>Make Me Your Active Pet!</Button> : null }
+                            </div>
+                        </div>
+                        <div className='petDetailsColumn2'>
+                            <div className='petDetailsWellbeing'><Wellbeing hunger={1} hygiene={0} mood={-1} /></div>
                         </div>
                     </div>
                 </Surround>

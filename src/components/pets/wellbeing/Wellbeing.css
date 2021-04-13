@@ -1,0 +1,13 @@
+.wellbeing {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.wellbeingStat img {
+  height: 32px;
+  width: 32px;
+  margin: 4px;
+}
+
+/*# sourceMappingURL=Wellbeing.css.map */

@@ -1,24 +1,28 @@
-.petDetails {
-  width: 600px;
-}
 .petDetails .petPicture {
   width: 250px;
 }
 
-.petDetailsGrid {
-  display: grid;
-  grid-template-rows: repeat(2, auto);
-  grid-template-columns: repeat(2, 300px);
-  grid-template-areas: "detailsPicture detailsStats" "details .";
+.petDetailsInner {
+  display: flex;
 }
 
-.detailsPicture {
-  justify-self: center;
+.petDetailsColumn1 {
+  display: flex;
+  flex-direction: column;
+  margin-right: 32px;
 }
 
-.details {
+.petDetailsAbout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-top: 16px;
+  padding: 16px;
+}
+
+.petDetailsWellbeing {
+  border: 2px solid #023047;
+  border-radius: 8px;
 }
 
 /*# sourceMappingURL=PetDetails.css.map */
