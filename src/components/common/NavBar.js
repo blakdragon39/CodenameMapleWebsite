@@ -6,6 +6,7 @@ import PropType from 'prop-types'
 
 import { logout } from '../../reducers/loginReducer'
 import { useUser } from '../hooks/userHooks'
+import routes from '../../routes'
 
 import Button from 'react-bootstrap/Button'
 import LoginModal from '../login/LoginModal'
@@ -55,7 +56,7 @@ const LoginSignup = ({ setLoginVisible }) => {
     return (
         <div>
             <Button variant='outline-secondary' onClick={() => setLoginVisible(true)}>Login</Button>
-            <Link to='/sign-up'><Button variant='outline-secondary'>Sign-up</Button></Link>
+            <Link to={routes.signUp}><Button variant='outline-secondary'>Sign-up</Button></Link>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import useControlledInput from '../hooks/useControlledInput'
 import PropTypes from 'prop-types'
 
 import { login } from '../../reducers/loginReducer'
+import routes from '../../routes'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
@@ -36,7 +37,7 @@ const LoginModal = ({ visible, setVisible }) => {
         switch (result.type) {
         case login.fulfilled.toString():
             dismissLogin()
-            history.push('/')
+            history.push(routes.home)
             break
         case login.rejected.toString():
             setError(result.payload)

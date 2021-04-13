@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getCurrentPet } from '../../../reducers/currentPetReducer'
-import { useUser } from '../../hooks/userHooks'
+import { getCurrentPet } from '../../reducers/currentPetReducer'
+import { useUser } from '../hooks/userHooks'
 
-import PetPicture from '../PetPicture'
+import PetPicture from '../common/PetPicture'
 import './CurrentPet.css'
 
 const CurrentPet = () => {

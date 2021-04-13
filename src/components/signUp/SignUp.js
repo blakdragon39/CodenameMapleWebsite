@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import useControlledInput from '../hooks/useControlledInput'
+import routes from '../../routes'
 
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
@@ -61,7 +62,7 @@ const SignUp = () => {
 
         switch (result.type) {
         case login.fulfilled.toString():
-            history.push('/') //todo redirect to where you were?
+            history.push(routes.home) //todo redirect to where you were?
             break
         case login.rejected.toString():
             setError(result.payload)

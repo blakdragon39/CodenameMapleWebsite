@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { useUser, useCurrentPet } from '../../hooks/userHooks'
+import { useUser, useCurrentPet } from '../hooks/userHooks'
+import routes from '../../routes'
 
-import Visibility from '../Visibility'
+import Visibility from '../common/Visibility'
 import CurrentPet from './CurrentPet'
 import './SideBar.css'
 
@@ -14,7 +15,7 @@ const SideBar = () => {
     return (
         <Visibility isVisible={user != null}>
             <div className='sideBar'>
-                <Link to={currentPet ? '/my-pets' : '/adopt-pet'}>
+                <Link to={currentPet ? routes.myPets : routes.adoptPet}>
                     <CurrentPet />
                 </Link>
             </div>
