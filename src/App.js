@@ -14,6 +14,7 @@ import SignUp from './components/signUp/SignUp'
 import PetList from './components/pets/PetList'
 import NotFound from './components/NotFound'
 import PetDetails from './components/pets/PetDetails'
+import Visibility from './components/common/Visibility'
 
 function App() {
     const user = useUser()
@@ -26,12 +27,12 @@ function App() {
                     <AuthRequired exact path={routes.adoptPet}>
                         <AdoptAPet />
                     </AuthRequired>
-                    <AuthRequired exact path={routes.petId}>
-                        <PetDetails />
-                    </AuthRequired>
 
+                    <Route exact path={routes.petId}>
+                        <PetDetails />
+                    </Route>
                     <Route exact path={routes.userId}>
-                        <PetList user={user} />
+                        <PetList />
                     </Route>
                     <Route exact path={routes.signUp}>
                         <SignUp />
@@ -47,7 +48,7 @@ function App() {
             </div>
 
             <NavBar />
-            <SideBar />
+            <Visibility isVisible={user != null}><SideBar /></Visibility>
         </div>
     )
 }

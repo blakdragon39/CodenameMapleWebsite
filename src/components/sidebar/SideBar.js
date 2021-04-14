@@ -17,17 +17,15 @@ const SideBar = () => {
     const currentPet = useCurrentPet()
 
     return (
-        <Visibility isVisible={user != null}>
-            <div className='sideBar'>
-                <OverlayTrigger
-                    placement='right-start'
-                    overlay={<PopoverWellbeing wellbeing={currentPet ? currentPet.wellbeing : null} />}>
-                    <SideBarCurrentPet currentPet={currentPet} />
-                </OverlayTrigger>
+        <div className='sideBar'>
+            <OverlayTrigger
+                placement='right-start'
+                overlay={<PopoverWellbeing wellbeing={currentPet ? currentPet.wellbeing : null} />}>
+                <SideBarCurrentPet currentPet={currentPet} />
+            </OverlayTrigger>
 
-                <Link to={routes.toUserId(user.id)} className='sideBarLink'>My Pets</Link>
-            </div>
-        </Visibility>
+            <Link to={routes.toUserId(user.id)} className='sideBarLink'>My Pets</Link>
+        </div>
     )
 }
 

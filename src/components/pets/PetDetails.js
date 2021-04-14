@@ -14,6 +14,7 @@ import PetPicture from '../common/PetPicture'
 import VerticalSpace from '../common/VerticalSpace'
 import Wellbeing from './wellbeing/Wellbeing'
 import './PetDetails.css'
+import Visibility from '../common/Visibility'
 
 const PetDetails = () => {
     const [pet, setPet] = useState(null) //todo loading state
@@ -40,7 +41,8 @@ const PetDetails = () => {
         }))
     }
 
-    const isCurrentPet = currentPet != null && pet != null && currentPet.id === pet.id
+    const isCurrentPet = pet && currentPet && currentPet.id === pet.id
+    const isUsersPet = user && pet &&  user.id === pet.userId
 
     if (pet) {
         return (
@@ -53,7 +55,9 @@ const PetDetails = () => {
                                 <b>{ pet.name }</b>
                                 { pet.species }
                                 <VerticalSpace height={8} />
-                                { !isCurrentPet ? <Button onClick={makePetActive}>Make Me Your Active Pet!</Button> : null }
+                                <Visibility isVisible={isUsersPet && !isCurrentPet}>
+                                    <Button onClick={makePetActive}>Make Me Your Active Pet!</Button>
+                                </Visibility>
                             </div>
                         </div>
                         <div className='petDetailsColumn2'>

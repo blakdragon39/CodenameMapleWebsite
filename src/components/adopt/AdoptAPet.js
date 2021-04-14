@@ -40,7 +40,7 @@ const AdoptAPet = () => {
         await dispatch(setCurrentPet({
             userToken: user.token,
             userId: user.id,
-            petId: result.payload.id
+            petId: result.id
         }))
 
         setLoading(false)
