@@ -58,10 +58,7 @@ const PetDetails = () => {
                         </div>
                         <div className='petDetailsColumn2'>
                             <div className='petDetailsWellbeing'>
-                                <Wellbeing
-                                    hunger={pet.wellbeing.hunger}
-                                    hygiene={pet.wellbeing.hygiene}
-                                    mood={pet.wellbeing.mood} />
+                                <Wellbeing wellbeing={pet.wellbeing} />
                             </div>
                         </div>
                     </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Visibility = ({ isVisible, children }) => {
+const Visibility = ({ isVisible, children, ...props }) => {
     return isVisible ? (
-        <>
+        <span {...props} >
             { children }
-        </>
+        </span>
     ) : null
 }
 
