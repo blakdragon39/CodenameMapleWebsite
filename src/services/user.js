@@ -7,5 +7,10 @@ const register = async (email, password, displayName) => {
     return response.data
 }
 
-const userService = { register }
+const getAll = async () => {
+    const response = await axios.get(baseUrl)
+    return response.data
+}
+
+const userService = { register, getAll }
 export default userService
