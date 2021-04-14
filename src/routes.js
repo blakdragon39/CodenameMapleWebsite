@@ -1,19 +1,17 @@
 const home = '/'
 const adoptPet = '/adopt-pet'
-const myPets = '/my-pets'
-const myPetId = '/my-pets/:id'
+const petId = '/pet/:id'
 const userId = '/user/:id'
 const signUp = '/sign-up'
 
-const toMyPetId = (id) => `/my-pets/${id}`
+const toPetId = (id) => `/pet/${id}`
 const toUserId = (id) => `/user/${id}`
 
 const routes = {
     home,
     adoptPet,
-    myPets,
-    myPetId,
-    toMyPetId,
+    petId,
+    toPetId,
     userId,
     toUserId,
     signUp

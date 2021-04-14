@@ -25,7 +25,7 @@ const SideBar = () => {
                     <SideBarCurrentPet currentPet={currentPet} />
                 </OverlayTrigger>
 
-                <Link to={routes.myPets} className='sideBarLink'>My Pets</Link>
+                <Link to={routes.toUserId(user.id)} className='sideBarLink'>My Pets</Link>
             </div>
         </Visibility>
     )
@@ -33,7 +33,7 @@ const SideBar = () => {
 
 const SideBarCurrentPet = ({ currentPet, ...props }) => {
     return (
-        <Link to={currentPet ? routes.toMyPetId(currentPet.id) : routes.adoptPet} {...props}>
+        <Link to={currentPet ? routes.toPetId(currentPet.id) : routes.adoptPet} {...props}>
             <CurrentPet />
         </Link>
     )

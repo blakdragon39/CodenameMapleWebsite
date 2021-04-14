@@ -16,7 +16,7 @@ import Wellbeing from './wellbeing/Wellbeing'
 import './PetDetails.css'
 
 const PetDetails = () => {
-    const [pet, setPet] = useState(null)
+    const [pet, setPet] = useState(null) //todo loading state
     const [error, setError] = useState(null)
     const user = useUser()
     const currentPet = useCurrentPet()

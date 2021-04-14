@@ -13,10 +13,8 @@ const Home = () => {
         <div>
             TODO!<br />
             - sign up/login sharing the same pending flag<br />
-            - choose a current pet<br />
-            - pet wellness stats: hunger, hygiene, mood<br />
-            - items to effect those stats<br />
-            - also the entire item system<br />
+            - items to effect pet wellbeing stats<br />
+            - a way to get/see/use items<br />
             <div style={{ marginTop: 32 }}>
                 A work in progress, with placeholder art<br />
                 Adopt these pets:
@@ -43,7 +41,7 @@ const AdoptablePets = () => {
                     textAlign: 'center'
                 }} key={preview.species}>
                     <b>{ preview.species }</b>
-                    <img src={preview.picture} style={{ height: 100, width: 100 }} />
+                    <img src={preview.picture} style={{ height: 100, width: 100 }} alt={preview.species} />
                 </span>
             ))
         } </div>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-import { createPet } from '../../reducers/petReducer'
+import userPetsService from '../../services/userPets'
 import { setCurrentPet } from '../../reducers/currentPetReducer'
 import { useUser } from '../hooks/userHooks'
 import routes from '../../routes'
@@ -18,23 +18,24 @@ import './AdoptAPet.css'
 
 const AdoptAPet = () => {
     const [selectedPet, setSelectedPet] = useState(null)
+    const [loading, setLoading] = useState(false)
     const petName = useControlledInput('text')
 
     const user = useUser()
-    const petState = useSelector(store => store.petState)
 
     const dispatch = useDispatch()
     const history = useHistory()
 
     const submitCreatePet = async (e) => {
         e.preventDefault()
+        setLoading(true)
 
-        const result = await dispatch(createPet({
-            userToken: user.token,
-            userId: user.id,
-            name: petName.props.value,
-            species: selectedPet.species
-        }))
+        const result = await userPetsService.createPet(
+            user.token,
+            user.id,
+            petName.props.value,
+            selectedPet.species
+        )
 
         await dispatch(setCurrentPet({
             userToken: user.token,
@@ -42,7 +43,8 @@ const AdoptAPet = () => {
             petId: result.payload.id
         }))
 
-        history.push(routes.myPets)
+        setLoading(false)
+        history.push(routes.toUserId(user.id))
     }
 
     return (
@@ -60,8 +62,8 @@ const AdoptAPet = () => {
                         <Button
                             type='submit'
                             variant='secondary'
-                            disabled={petState.adoptionPending}>
-                            { petState.adoptionPending ? 'Adopting...' : 'Adopt this pet!' }
+                            disabled={loading}>
+                            { loading ? 'Adopting...' : 'Adopt this pet!' }
                         </Button>
                     </Form>
                 </Surround>

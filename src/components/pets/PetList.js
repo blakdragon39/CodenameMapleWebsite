@@ -1,26 +1,33 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
-import { getPets } from '../../reducers/petReducer'
+import userPetsService from '../../services/userPets'
 import { useUser } from '../hooks/userHooks'
 
 import PetCard from './PetCard'
 import './PetList.css'
+import Visibility from '../common/Visibility'
 
 const PetList = () => {
-    const pets = useSelector(store => store.petState.pets)
+    const [pets, setPets] = useState([])
+    const [loading, setLoading] = useState(false)
     const user = useUser()
+    const { id } = useParams()
+    //todo loading state
+    //todo hook that combines loading with result
 
-    const dispatch = useDispatch()
+    //todo something if there's no pets
 
-    useEffect(() => dispatch(getPets({ userId: user.id })), [])
+    useEffect(async () => setPets(await userPetsService.getPets(id)), [])
 
     return (
         <div className='petList'>
             {
                 pets.map(pet => <PetCard pet={pet} key={pet.id} />)
             }
-            <PetCard />
+            <Visibility isVisible={user && user.id === id}>
+                <PetCard />
+            </Visibility>
         </div>
     )
 }

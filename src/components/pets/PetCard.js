@@ -12,7 +12,7 @@ const PetCard = ({ pet }) => pet ? <PopulatedPetCard pet={pet} /> : <Unpopulated
 
 const PopulatedPetCard = ({ pet }) => {
     return (
-        <Link to={`/my-pets/${pet.id}`} className='petCard'>
+        <Link to={routes.toPetId(pet.id)} className='petCard'>
             <img src={ pet ? PetSpecies[pet.species].picture : petImages.MissingNo } alt={pet.name} />
             { pet.name }
         </Link>
