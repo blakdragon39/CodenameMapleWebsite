@@ -16,4 +16,8 @@
   color: #023047;
 }
 
+#popoverWellbeing .arrow {
+  display: none;
+}
+
 /*# sourceMappingURL=SideBar.css.map */

@@ -20,7 +20,7 @@ const SideBar = () => {
         <Visibility isVisible={user != null}>
             <div className='sideBar'>
                 <OverlayTrigger
-                    placement='right'
+                    placement='right-start'
                     overlay={<PopoverWellbeing wellbeing={currentPet ? currentPet.wellbeing : null} />}>
                     <SideBarCurrentPet currentPet={currentPet} />
                 </OverlayTrigger>
@@ -43,7 +43,7 @@ const PopoverWellbeing = React.forwardRef(({ wellbeing, ...props }, ref) => {
     return (
         <div ref={ref}>
             <Visibility isVisible={wellbeing != null}>
-                <Popover id='tooltipPetWellbeing' {...props}>
+                <Popover id='popoverWellbeing' {...props}>
                     <Wellbeing wellbeing={wellbeing} />
                 </Popover>
             </Visibility>
