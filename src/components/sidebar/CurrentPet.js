@@ -5,6 +5,7 @@ import { getCurrentPet } from '../../reducers/currentPetReducer'
 import { useUser } from '../hooks/userHooks'
 
 import PetPicture from '../common/PetPicture'
+import VerticalSpace from '../common/VerticalSpace'
 import './CurrentPet.css'
 
 const CurrentPet = () => {
@@ -16,20 +17,21 @@ const CurrentPet = () => {
 
     useEffect(async () => await dispatch(getCurrentPet({ userId: user.id })), [])
 
-    let nameDiv
+    let name
 
     if (currentPetState.pending) {
-        nameDiv = '...'
+        name = '...'
     } else if (!currentPet) {
-        nameDiv = 'Adopt a New Pet!'
+        name = 'Adopt a New Pet!'
     } else {
-        nameDiv = currentPet.name
+        name = currentPet.name
     }
 
     return (
         <div className='currentPet'>
             <PetPicture pet={currentPet} />
-            <div className='currentPetName'>{ nameDiv }</div>
+            <VerticalSpace height={4} />
+            <b>{ name }</b>
         </div>
     )
 }

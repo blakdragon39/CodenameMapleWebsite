@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import routes from '../../routes'
 
 import { PetSpecies } from '../../models/Pet'
-import petImages from '../../assets/pets'
+import petImages from '../../assets/pets/petImages'
 import './PetCard.css'
 
 const PetCard = ({ pet }) => pet ? <PopulatedPetCard pet={pet} /> : <UnpopulatedPetCard />

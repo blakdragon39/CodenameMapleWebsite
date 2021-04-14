@@ -30,7 +30,6 @@ const petSlice = createSlice({
         },
         [getPets.fulfilled]: (state, action) => {
             state.pets = action.payload
-            state.currentPet = state.pets[0]
             state.pending = false
         },
         [getPets.rejected]: (state) => {

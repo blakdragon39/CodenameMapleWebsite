@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["CurrentPet.scss","../../css/dimens.scss","../../css/colors.scss"],"names":[],"mappings":"AAGA;EACI;EACA,QCLe;EDMf;;;AAGJ;EACI;EACA,OETc;;AFWd;EACI,OEZU","file":"CurrentPet.css"}
+{"version":3,"sourceRoot":"","sources":["CurrentPet.scss","../../css/colors.scss"],"names":[],"mappings":"AAGA;EACI;EACA;EACA,OCJc;EDKd","file":"CurrentPet.css"}

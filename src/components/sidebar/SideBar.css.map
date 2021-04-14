@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["SideBar.scss","../../css/dimens.scss","../../css/colors.scss"],"names":[],"mappings":"AAGA;EACI;EACA,KCHY;EDKZ;EACA,OCHY;EDIZ,WCJY;EDKZ,SCNc;EDQd;EACA;EAEA,YEdsB;EFetB;EACA,cEjBY","file":"SideBar.css"}
+{"version":3,"sourceRoot":"","sources":["SideBar.scss","../../css/dimens.scss","../../css/colors.scss"],"names":[],"mappings":"AAGA;EACI;EACA,KCHY;EDKZ;EACA,OCHY;EDIZ,WCJY;EDKZ,SCNc;EDQd;EACA;EAEA,YEdsB;EFetB;EACA,cEjBY;;AFmBZ;EACI;EACA,OEnBU;;;AFwBd;EACI","file":"SideBar.css"}
