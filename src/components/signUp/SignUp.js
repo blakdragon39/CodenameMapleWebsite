@@ -73,7 +73,7 @@ const SignUp = () => {
     return (
         <div className='signUp'>
             <Surround>
-                <Visibility isVisible={error !== null}>
+                <Visibility isVisible={error}>
                     <Alert variant='danger' dismissible onClose={() => setError(null)}>{ error }</Alert>
                 </Visibility>
                 <Form onSubmit={onSignUpSubmit}>

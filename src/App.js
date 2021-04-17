@@ -48,7 +48,7 @@ function App() {
             </div>
 
             <NavBar />
-            <Visibility isVisible={user != null}><SideBar /></Visibility>
+            <Visibility isVisible={user}><SideBar /></Visibility>
         </div>
     )
 }

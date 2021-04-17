@@ -51,7 +51,7 @@ const AdoptAPet = () => {
         <div className='adoptAPet'>
             <SelectAPet selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
             <VerticalSpace height={24} />
-            <Visibility isVisible={selectedPet != null}>
+            <Visibility isVisible={selectedPet}>
                 <div className='speciesTitle'>{ selectedPet ? selectedPet.species : '' }</div>
                 <Surround>
                     <Form onSubmit={submitCreatePet}>

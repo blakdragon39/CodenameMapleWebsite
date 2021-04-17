@@ -10,7 +10,7 @@ const Visibility = ({ isVisible, children, ...props }) => {
 }
 
 Visibility.propTypes = {
-    isVisible: PropTypes.bool,
+    isVisible: PropTypes.any.isRequired,
     children: PropTypes.node.isRequired
 }
 

@@ -40,7 +40,7 @@ const SideBarCurrentPet = ({ currentPet, ...props }) => {
 const PopoverWellbeing = React.forwardRef(({ wellbeing, ...props }, ref) => {
     return (
         <div ref={ref}>
-            <Visibility isVisible={wellbeing != null}>
+            <Visibility isVisible={wellbeing}>
                 <Popover id='popoverWellbeing' {...props}>
                     <Wellbeing wellbeing={wellbeing} />
                 </Popover>

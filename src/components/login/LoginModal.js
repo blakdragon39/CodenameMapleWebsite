@@ -68,7 +68,7 @@ const LoginModal = ({ visible, setVisible }) => {
             centered={true}>
 
             <Surround reverse>
-                <Visibility isVisible={error !== null}>
+                <Visibility isVisible={error}>
                     <Alert variant='danger' dismissible onClose={dismissError}>{ error }</Alert>
                 </Visibility>
                 <Form onSubmit={onSubmitLogin}>
