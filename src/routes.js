@@ -3,6 +3,7 @@ const adoptPet = '/adopt-pet'
 const petId = '/pet/:id'
 const userId = '/user/:id'
 const signUp = '/sign-up'
+const myItems = '/my-items'
 
 const toPetId = (id) => `/pet/${id}`
 const toUserId = (id) => `/user/${id}`
@@ -14,7 +15,8 @@ const routes = {
     toPetId,
     userId,
     toUserId,
-    signUp
+    signUp,
+    myItems
 }
 
 export default routes

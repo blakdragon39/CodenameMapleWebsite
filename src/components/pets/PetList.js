@@ -22,7 +22,7 @@ const PetList = () => {
         try {
             petState.setState(await userPetsService.getPets(id))
         } catch (e) {
-            petState.setError(e)
+            petState.setError(e.response.data.message)
         }
 
         petState.setPending(false)

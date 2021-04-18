@@ -25,6 +25,7 @@ const SideBar = () => {
             </OverlayTrigger>
 
             <Link to={routes.toUserId(user.id)} className='sideBarLink'>My Pets</Link>
+            <Link to={routes.myItems} className='sideBarLink'>My Items</Link>
         </div>
     )
 }

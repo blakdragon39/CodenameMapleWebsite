@@ -15,6 +15,7 @@ import PetList from './components/pets/PetList'
 import NotFound from './components/NotFound'
 import PetDetails from './components/pets/PetDetails'
 import Visibility from './components/common/Visibility'
+import MyItems from './components/items/MyItems'
 
 function App() {
     const user = useUser()
@@ -26,6 +27,9 @@ function App() {
                 <Switch>
                     <AuthRequired exact path={routes.adoptPet}>
                         <AdoptAPet />
+                    </AuthRequired>
+                    <AuthRequired exact path={routes.myItems}>
+                        <MyItems />
                     </AuthRequired>
 
                     <Route exact path={routes.petId}>
