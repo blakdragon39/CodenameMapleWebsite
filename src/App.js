@@ -16,8 +16,9 @@ import NotFound from './components/NotFound'
 import PetDetails from './components/pets/PetDetails'
 import Visibility from './components/common/Visibility'
 import MyItems from './components/items/MyItems'
+import WellbeingShop from './components/shops/WellbeingShop'
 
-function App() {
+const App = () => {
     const user = useUser()
     const className = `main ${user ? 'sideBarOpen' : ''}`
 
@@ -32,18 +33,12 @@ function App() {
                         <MyItems />
                     </AuthRequired>
 
-                    <Route exact path={routes.petId}>
-                        <PetDetails />
-                    </Route>
-                    <Route exact path={routes.userId}>
-                        <PetList />
-                    </Route>
-                    <Route exact path={routes.signUp}>
-                        <SignUp />
-                    </Route>
-                    <Route exact path={routes.home}>
-                        <Home />
-                    </Route>
+                    <Route exact path={routes.home} component={Home} />
+                    <Route exact path={routes.signUp} component={SignUp} />
+                    <Route exact path={routes.petId} component={PetDetails} />
+                    <Route exact path={routes.userId} component={PetList} />
+
+                    <Route exact path={routes.shops.wellbeing} component={WellbeingShop} />
 
                     <Route path='*'>
                         <NotFound />
