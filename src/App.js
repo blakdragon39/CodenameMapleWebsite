@@ -16,8 +16,9 @@ import NotFound from './components/NotFound'
 import PetDetails from './components/pets/PetDetails'
 import Visibility from './components/common/Visibility'
 import MyItems from './components/items/MyItems'
+import WellbeingShop from './components/shops/WellbeingShop'
 
-function App() {
+const App = () => {
     const user = useUser()
     const className = `main ${user ? 'sideBarOpen' : ''}`
 
@@ -45,6 +46,8 @@ function App() {
                         <Home />
                     </Route>
 
+                    <ShopPaths />
+
                     <Route path='*'>
                         <NotFound />
                     </Route>
@@ -54,6 +57,16 @@ function App() {
             <NavBar />
             <Visibility isVisible={user}><SideBar /></Visibility>
         </div>
+    )
+}
+
+const ShopPaths = () => {
+    return (
+        <>
+            <Route exact path={routes.shops.wellbeing}>
+                <WellbeingShop />
+            </Route>
+        </>
     )
 }
 

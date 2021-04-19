@@ -5,6 +5,8 @@ const userId = '/user/:id'
 const signUp = '/sign-up'
 const myItems = '/my-items'
 
+const wellbeing = '/shop/wellbeing'
+
 const toPetId = (id) => `/pet/${id}`
 const toUserId = (id) => `/user/${id}`
 
@@ -16,7 +18,11 @@ const routes = {
     userId,
     toUserId,
     signUp,
-    myItems
+    myItems,
+
+    shops: {
+        wellbeing
+    }
 }
 
 export default routes

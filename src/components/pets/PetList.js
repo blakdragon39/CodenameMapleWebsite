@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Alert from 'react-bootstrap/Alert'
-import Spinner from 'react-bootstrap/Spinner'
 
 import userPetsService from '../../services/userPets'
 import usePendingState from '../hooks/usePendingState'
@@ -9,6 +7,8 @@ import { useUser } from '../hooks/userHooks'
 
 import PetCard from './PetCard'
 import Visibility from '../common/Visibility'
+import Error from '../common/Error'
+import Pending from '../common/Pending'
 import './PetList.css'
 
 const PetList = () => {
@@ -30,12 +30,8 @@ const PetList = () => {
 
     return (
         <div>
-            <Visibility isVisible={petState.error}>
-                <Alert variant='danger'>{ petState.error }</Alert>
-            </Visibility>
-            <Visibility isVisible={petState.pending}>
-                <Spinner animation='border' variant='secondary' />
-            </Visibility>
+            <Error error={petState.error} />
+            <Pending pending={petState.pending} />
             <div className='petList'>
                 {
                     petState.state.map(pet => <PetCard pet={pet} key={pet.id} />)

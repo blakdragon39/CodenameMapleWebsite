@@ -43,6 +43,8 @@ const AdoptAPet = () => {
             petId: result.id
         }))
 
+        //todo error?
+
         setLoading(false)
         history.push(routes.toUserId(user.id))
     }

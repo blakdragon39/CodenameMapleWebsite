@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
-import Alert from 'react-bootstrap/Alert'
-import Spinner from 'react-bootstrap/Spinner'
 
 import usePendingState from '../hooks/usePendingState'
 import userItemsService from '../../services/userItems'
 import { useUser } from '../hooks/userHooks'
 
-import Visibility from '../common/Visibility'
+import Error from '../common/Error'
+import Pending from '../common/Pending'
 
 const MyItems = () => {
     const user = useUser()
@@ -22,12 +21,8 @@ const MyItems = () => {
 
     return (
         <div>
-            <Visibility isVisible={itemState.error}>
-                <Alert variant='danger'>{ itemState.error }</Alert>
-            </Visibility>
-            <Visibility isVisible={itemState.pending}>
-                <Spinner animation='border' variant='secondary'/>
-            </Visibility>
+            <Error error={itemState.error} />
+            <Pending pending={itemState.pending} />
             {
                 itemState.state.map((item, index) => <div key={index}>{ item.displayName }</div>)
             }
