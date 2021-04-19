@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React  from 'react'
 
 import usePendingState from '../hooks/usePendingState'
 import userItemsService from '../../services/userItems'
@@ -9,15 +9,7 @@ import Pending from '../common/Pending'
 
 const MyItems = () => {
     const user = useUser()
-    const itemState = usePendingState([])
-
-    useEffect(async () => {
-        itemState.setPending(true)
-
-        itemState.setState(await userItemsService.getItems(user.token, user.id))
-
-        itemState.setPending(false)
-    }, [])
+    const itemState = usePendingState([], () => userItemsService.getItems(user.token, user.id))
 
     return (
         <div>

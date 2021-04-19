@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 
 import userPetsService from '../../services/userPets'
@@ -12,21 +12,10 @@ import Pending from '../common/Pending'
 import './PetList.css'
 
 const PetList = () => {
-    const petState = usePendingState([])
     const user = useUser()
     const { id } = useParams()
 
-    useEffect(async () => {
-        petState.setPending(true)
-
-        try {
-            petState.setState(await userPetsService.getPets(id))
-        } catch (e) {
-            petState.setError(e.response.data.message)
-        }
-
-        petState.setPending(false)
-    }, [])
+    const petState = usePendingState([], () => userPetsService.getPets(id))
 
     return (
         <div>

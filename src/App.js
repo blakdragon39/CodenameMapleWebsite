@@ -33,20 +33,12 @@ const App = () => {
                         <MyItems />
                     </AuthRequired>
 
-                    <Route exact path={routes.petId}>
-                        <PetDetails />
-                    </Route>
-                    <Route exact path={routes.userId}>
-                        <PetList />
-                    </Route>
-                    <Route exact path={routes.signUp}>
-                        <SignUp />
-                    </Route>
-                    <Route exact path={routes.home}>
-                        <Home />
-                    </Route>
+                    <Route exact path={routes.home} component={Home} />
+                    <Route exact path={routes.signUp} component={SignUp} />
+                    <Route exact path={routes.petId} component={PetDetails} />
+                    <Route exact path={routes.userId} component={PetList} />
 
-                    <ShopPaths />
+                    <Route exact path={routes.shops.wellbeing} component={WellbeingShop} />
 
                     <Route path='*'>
                         <NotFound />
@@ -57,16 +49,6 @@ const App = () => {
             <NavBar />
             <Visibility isVisible={user}><SideBar /></Visibility>
         </div>
-    )
-}
-
-const ShopPaths = () => {
-    return (
-        <>
-            <Route exact path={routes.shops.wellbeing}>
-                <WellbeingShop />
-            </Route>
-        </>
     )
 }
 
