@@ -6,6 +6,7 @@ import { useUser } from '../hooks/userHooks'
 
 import Error from '../common/Error'
 import Pending from '../common/Pending'
+import ItemList from './ItemList'
 
 const MyItems = () => {
     const user = useUser()
@@ -15,9 +16,7 @@ const MyItems = () => {
         <div>
             <Error error={itemState.error} />
             <Pending pending={itemState.pending} />
-            {
-                itemState.state.map((item, index) => <div key={index}>{ item.displayName }</div>)
-            }
+            <ItemList items={itemState.state} />
         </div>
     )
 }

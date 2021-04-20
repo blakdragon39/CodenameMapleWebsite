@@ -5,7 +5,7 @@ const userId = '/user/:id'
 const signUp = '/sign-up'
 const myItems = '/my-items'
 
-const wellbeing = '/shop/wellbeing'
+const wellbeingShop = '/shop/wellbeing'
 
 const toPetId = (id) => `/pet/${id}`
 const toUserId = (id) => `/user/${id}`
@@ -21,7 +21,7 @@ const routes = {
     myItems,
 
     shops: {
-        wellbeing
+        wellbeingShop
     }
 }
 

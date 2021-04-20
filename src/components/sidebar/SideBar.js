@@ -26,6 +26,7 @@ const SideBar = () => {
 
             <Link to={routes.toUserId(user.id)} className='sideBarLink'>My Pets</Link>
             <Link to={routes.myItems} className='sideBarLink'>My Items</Link>
+            <Link to={routes.shops.wellbeingShop} className='sideBarLink'>Wellbeing Shop</Link>
         </div>
     )
 }

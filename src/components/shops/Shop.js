@@ -7,6 +7,7 @@ import shopService from '../../services/shops'
 import Error from '../common/Error'
 import Pending from '../common/Pending'
 import Visibility from '../common/Visibility'
+import ItemList from '../items/ItemList'
 
 const Shop = ({ shopId }) => {
     const shopState = usePendingState(null, () => shopService.get(shopId))
@@ -23,13 +24,10 @@ const Shop = ({ shopId }) => {
 }
 
 const ShopComponent = ({ shop }) => {
-    console.log('shop', shop)
     return (
         <>
             { shop.name }
-            {
-                shop.items.map((item, index) => <div key={index}>{ item.displayName }</div>)
-            }
+            <ItemList items={shop.items} />
         </>
     )
 }

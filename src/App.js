@@ -38,7 +38,7 @@ const App = () => {
                     <Route exact path={routes.petId} component={PetDetails} />
                     <Route exact path={routes.userId} component={PetList} />
 
-                    <Route exact path={routes.shops.wellbeing} component={WellbeingShop} />
+                    <Route exact path={routes.shops.wellbeingShop} component={WellbeingShop} />
 
                     <Route path='*'>
                         <NotFound />
