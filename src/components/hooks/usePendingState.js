@@ -5,7 +5,7 @@ const usePendingState = (initialState, execute) => {
     const [state, setState] = useState(initialState)
     const [error, setError] = useState(null)
 
-    useEffect(async () => {
+    const refreshState = async () => {
         setPending(true)
 
         try {
@@ -16,12 +16,15 @@ const usePendingState = (initialState, execute) => {
         }
 
         setPending(false)
-    }, [])
+    }
+
+    useEffect(async () => await refreshState(), [])
 
     return {
         pending,
         error,
         state,
+        refreshState,
     }
 }
 

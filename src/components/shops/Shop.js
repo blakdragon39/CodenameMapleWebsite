@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Button from 'react-bootstrap/Button'
 
 import usePendingState from '../hooks/usePendingState'
 import shopService from '../../services/shops'
@@ -7,10 +8,16 @@ import shopService from '../../services/shops'
 import Error from '../common/Error'
 import Pending from '../common/Pending'
 import Visibility from '../common/Visibility'
+import VerticalSpace from '../common/VerticalSpace'
 import ItemList from '../items/ItemList'
 
 const Shop = ({ shopId }) => {
     const shopState = usePendingState(null, () => shopService.get(shopId))
+
+    const addMoreShopItems = async () => {
+        await shopService.addMoreItems(shopId)
+        await shopState.refreshState()
+    }
 
     return (
         <>
@@ -18,6 +25,7 @@ const Shop = ({ shopId }) => {
             <Pending pending={shopState.pending} />
             <Visibility isVisible={shopState.state}>
                 <ShopComponent shop={shopState.state} />
+                <Button style={{ marginTop: 16 }} onClick={addMoreShopItems}>Add More Items</Button>
             </Visibility>
         </>
     )
@@ -26,7 +34,8 @@ const Shop = ({ shopId }) => {
 const ShopComponent = ({ shop }) => {
     return (
         <>
-            { shop.name }
+            <h3>{ shop.name }</h3>
+            <VerticalSpace height={8} />
             <ItemList items={shop.items} />
         </>
     )

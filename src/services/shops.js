@@ -7,5 +7,10 @@ const get = async (shopId) => {
     return response.data
 }
 
-const shopService = { get }
+const addMoreItems = async (shopId) => {
+    const response = await axios.post(baseUrl(shopId))
+    return response.data
+}
+
+const shopService = { get, addMoreItems }
 export default shopService

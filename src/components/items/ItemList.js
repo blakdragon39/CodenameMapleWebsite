@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import './ItemList.css'
+
 const ItemList = ({ items }) => {
     return (
         <div>
@@ -13,14 +15,17 @@ const ItemList = ({ items }) => {
 
 const Item = ({ item }) => {
     return (
-        <div>
-            { item.displayName }
+        <div className='item'>
+            <div><b>{ item.displayName }</b></div>
+            <div className='itemDescription'>
+                - { item.description }
+            </div>
         </div>
     )
 }
 
 ItemList.propTypes = {
-    items: PropTypes.object.isRequired
+    items: PropTypes.array.isRequired
 }
 
 Item.propTypes = {
