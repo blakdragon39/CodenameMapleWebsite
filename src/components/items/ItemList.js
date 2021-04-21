@@ -4,13 +4,11 @@ import PropTypes from 'prop-types'
 import './ItemList.css'
 
 const ItemList = ({ items, itemComponent }) => {
-    const ItemComponent = itemComponent
-
     return (
         <div>
             {
-                items.map((item, index) => ItemComponent
-                    ? <ItemComponent item={item} key={index} />
+                items.map((item, index) => itemComponent
+                    ? { itemComponent }
                     : <Item item={item} key={index} />)
             }
         </div>
@@ -30,7 +28,7 @@ const Item = ({ item }) => {
 
 ItemList.propTypes = {
     items: PropTypes.array.isRequired,
-    itemComponent: PropTypes.func
+    itemComponent: PropTypes.node
 }
 
 Item.propTypes = {
