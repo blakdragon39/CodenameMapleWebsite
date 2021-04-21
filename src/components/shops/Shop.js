@@ -10,6 +10,7 @@ import Pending from '../common/Pending'
 import Visibility from '../common/Visibility'
 import VerticalSpace from '../common/VerticalSpace'
 import ItemList from '../items/ItemList'
+import './Shop.css'
 
 const Shop = ({ shopId }) => {
     const shopState = usePendingState(null, () => shopService.get(shopId))
@@ -36,8 +37,17 @@ const ShopComponent = ({ shop }) => {
         <>
             <h3>{ shop.name }</h3>
             <VerticalSpace height={8} />
-            <ItemList items={shop.items} />
+            <ItemList items={shop.items} itemComponent={ShopItem} />
         </>
+    )
+}
+
+const ShopItem = ({ item }) => {
+    return (
+        <div className='shopItem'>
+            <b>{ item.displayName }</b>
+            <Button>Buy this!</Button>
+        </div>
     )
 }
 
@@ -47,6 +57,10 @@ Shop.propTypes = {
 
 ShopComponent.propTypes = {
     shop: PropTypes.object
+}
+
+ShopItem.propTypes = {
+    item: PropTypes.object.isRequired
 }
 
 export default Shop

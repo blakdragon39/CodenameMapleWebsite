@@ -1,0 +1,15 @@
+.shopItem {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #023047;
+  border-radius: 16px;
+}
+.shopItem button {
+  margin-top: 8px;
+}
+
+/*# sourceMappingURL=Shop.css.map */
