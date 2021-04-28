@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["LoginModal.scss"],"names":[],"mappings":"AAEA;EACI;EACA;;;AAIA;EACI;EACA;EACA","file":"LoginModal.css"}
+{"version":3,"sourceRoot":"","sources":["../../css/modal.scss","LoginModal.scss"],"names":[],"mappings":"AAAA;EACI;EACA;;;ACEA;EACI;EACA;EACA","file":"LoginModal.css"}

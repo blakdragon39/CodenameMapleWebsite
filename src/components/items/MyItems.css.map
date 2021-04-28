@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["MyItems.scss"],"names":[],"mappings":"AAEA;EACI;;;AAGJ;EACI;EACA;EACA;;;AAGJ;EACI","file":"MyItems.css"}
+{"version":3,"sourceRoot":"","sources":["MyItems.scss","../../css/colors.scss"],"names":[],"mappings":"AAEA;EACI;EACA;EACA;;;AAGJ;EACI;;AAEA;EAEI;;;AAIR;EAEI,cCjBc;;;ADoBlB;EACI","file":"MyItems.css"}

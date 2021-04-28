@@ -8,5 +8,13 @@ const getItems = async (userToken, userId) => {
     return response.data
 }
 
-const userItemsService = { getItems }
+const useItemOnPet = async (userToken, userId, itemId, petId) => {
+    const response = await axios.put(baseUrl(userId), {
+        itemId: itemId,
+        petId: petId
+    }, authHeader(userToken))
+    return response.data
+}
+
+const userItemsService = { getItems, useItemOnPet }
 export default userItemsService

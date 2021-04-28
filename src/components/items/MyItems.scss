@@ -1,13 +1,23 @@
 @use "../../css/colors";
 
+%itemBorder {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 12px;
+}
+
 .myItem {
     margin-top: 8px;
+
+    &:hover {
+        @extend %itemBorder;
+        border-color: gray;
+    }
 }
 
 .selectedItem {
-    border: 1px solid colors.$color-secondary;
-    border-radius: 8px;
-    padding: 8px;
+    @extend %itemBorder;
+    border-color: colors.$color-secondary;
 }
 
 .myItemDescription {

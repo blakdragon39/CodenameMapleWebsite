@@ -1,11 +1,18 @@
+.selectedItem, .myItem:hover {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 12px;
+}
+
 .myItem {
   margin-top: 8px;
 }
+.myItem:hover {
+  border-color: gray;
+}
 
 .selectedItem {
-  border: 1px solid #023047;
-  border-radius: 8px;
-  padding: 8px;
+  border-color: #023047;
 }
 
 .myItemDescription {

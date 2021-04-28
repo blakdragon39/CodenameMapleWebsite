@@ -1,9 +1,5 @@
 @use "../../css/colors";
-
-.modal-content {
-    background-color: #00000000;
-    border: 0;
-}
+@use "../../css/modal";
 
 .login-buttons {
     button {

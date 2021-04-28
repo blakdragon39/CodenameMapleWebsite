@@ -13,8 +13,11 @@ const Home = () => {
         <div>
             TODO!<br />
             - sign up/login sharing the same pending flag<br />
-            - items to effect pet wellbeing stats<br />
-            - a way to get/see/use items<br />
+            - using items<br />
+            - detailed info on what using an item will do<br />
+            - placeholder pictures for items<br />
+            - money system<br />
+            - automatic shop stocking<br />
             <div style={{ marginTop: 32 }}>
                 A work in progress, with placeholder art<br />
                 Adopt these pets:
@@ -28,7 +31,7 @@ const Home = () => {
 
 const AdoptablePets = () => {
     const petsPreview = Object.keys(PetSpecies)
-        .map((species,) => PetSpecies[species])
+        .map((species) => PetSpecies[species])
 
     return (
         <div> {
