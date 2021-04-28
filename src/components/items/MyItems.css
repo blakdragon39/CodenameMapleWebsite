@@ -1,0 +1,15 @@
+.myItem {
+  margin-top: 8px;
+}
+
+.selectedItem {
+  border: 1px solid #023047;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.myItemDescription {
+  margin-left: 16px;
+}
+
+/*# sourceMappingURL=MyItems.css.map */

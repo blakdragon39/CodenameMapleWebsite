@@ -1,0 +1,15 @@
+@use "../../css/colors";
+
+.myItem {
+    margin-top: 8px;
+}
+
+.selectedItem {
+    border: 1px solid colors.$color-secondary;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.myItemDescription {
+    margin-left: 16px;
+}
