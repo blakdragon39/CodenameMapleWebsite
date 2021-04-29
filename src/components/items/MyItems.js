@@ -36,7 +36,10 @@ const MyItems = () => {
                             key={index} />)
                 }
             </div>
-            <UseItemModal setVisible={setUseItemModalVisible} visible={useItemModalVisible} />
+            <UseItemModal
+                item={itemState.state[selectedItemIndex]}
+                setVisible={setUseItemModalVisible}
+                visible={useItemModalVisible} />
         </div>
     )
 }
@@ -61,7 +64,7 @@ const Item = ({ item, index, selectedItemIndex, setSelectedItemIndex, setUseItem
 Item.propTypes = {
     item: PropTypes.object.isRequired,
     index: PropTypes.number.isRequired,
-    selectedItemIndex: PropTypes.number.isRequired,
+    selectedItemIndex: PropTypes.number,
     setSelectedItemIndex: PropTypes.func.isRequired,
     setUseItemModalVisible: PropTypes.func.isRequired
 }

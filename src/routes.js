@@ -9,6 +9,7 @@ const wellbeingShop = '/shop/wellbeing'
 
 const toPetId = (id) => `/pet/${id}`
 const toUserId = (id) => `/user/${id}`
+const withReload = (route) => `${route}/reload`
 
 const routes = {
     home,
@@ -19,6 +20,7 @@ const routes = {
     toUserId,
     signUp,
     myItems,
+    withReload,
 
     shops: {
         wellbeingShop
