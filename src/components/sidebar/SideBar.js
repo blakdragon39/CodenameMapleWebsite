@@ -7,9 +7,9 @@ import Popover from 'react-bootstrap/Popover'
 import { useUser, useCurrentPet } from '../hooks/userHooks'
 
 import routes from '../../routes'
-import Visibility from '../common/Visibility'
 import CurrentPet from './CurrentPet'
 import Wellbeing from '../pets/wellbeing/Wellbeing'
+import ExpandCollapse from '../common/ExpandCollapse'
 import './SideBar.css'
 
 const SideBar = () => {
@@ -27,6 +27,8 @@ const SideBar = () => {
             <Link to={routes.toUserId(user.id)} className='sideBarLink'>My Pets</Link>
             <Link to={routes.myItems} className='sideBarLink'>My Items</Link>
             <Link to={routes.shops.wellbeingShop} className='sideBarLink'>Wellbeing Shop</Link>
+
+            <ExpandCollapse isOpen={true} />
         </div>
     )
 }
@@ -42,11 +44,12 @@ const SideBarCurrentPet = ({ currentPet, ...props }) => {
 const PopoverWellbeing = React.forwardRef(({ wellbeing, ...props }, ref) => {
     return (
         <div ref={ref}>
-            <Visibility isVisible={wellbeing}>
-                <Popover id='popoverWellbeing' {...props}>
-                    <Wellbeing wellbeing={wellbeing} />
-                </Popover>
-            </Visibility>
+            {
+                wellbeing ?
+                    <Popover id='popoverWellbeing' {...props}>
+                        <Wellbeing wellbeing={wellbeing} />
+                    </Popover> : null
+            }
         </div>
     )
 })

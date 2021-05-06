@@ -1,0 +1,9 @@
+.expandCollapse {
+  display: inline;
+}
+
+.closed {
+  transform: rotate(180deg);
+}
+
+/*# sourceMappingURL=ExpandCollapse.css.map */
