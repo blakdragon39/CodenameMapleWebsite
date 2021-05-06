@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
@@ -15,6 +15,11 @@ import './SideBar.css'
 const SideBar = () => {
     const user = useUser()
     const currentPet = useCurrentPet()
+    const [sideBarOpen, setSideBarOpen] = useState(true)
+
+    const toggleOpen = () => {
+        setSideBarOpen(!sideBarOpen)
+    }
 
     return (
         <div className='sideBar'>
@@ -28,7 +33,9 @@ const SideBar = () => {
             <Link to={routes.myItems} className='sideBarLink'>My Items</Link>
             <Link to={routes.shops.wellbeingShop} className='sideBarLink'>Wellbeing Shop</Link>
 
-            <ExpandCollapse isOpen={true} />
+            <ExpandCollapse
+                onClick={toggleOpen}
+                isOpen={sideBarOpen} />
         </div>
     )
 }
