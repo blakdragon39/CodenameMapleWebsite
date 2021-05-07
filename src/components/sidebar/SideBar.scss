@@ -3,7 +3,7 @@
 
 .sideBar {
     position: fixed;
-    top: dimens.$navBar-height;
+    transition: margin .3s;
 
     height: 100vh;
     width: dimens.$sidebar-width;
@@ -21,10 +21,26 @@
         padding-top: 16px;
         color: colors.$color-secondary;
     }
+
+    #expandCollapse {
+        height: 48px;
+        width: 48px;
+        align-self: flex-end;
+        position: absolute;
+        bottom: dimens.$sidebar-padding;
+    }
+
+    #sideBarCurrentPet {
+        margin-top: dimens.$navBar-height;
+    }
 }
 
 #popoverWellbeing {
     .arrow {
         display: none;
     }
+}
+
+.closed {
+    margin: 0 0 0 -180px;
 }

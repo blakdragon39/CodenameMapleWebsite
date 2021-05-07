@@ -46,8 +46,8 @@ const App = () => {
                 </Switch>
             </div>
 
-            <NavBar />
             <Visibility isVisible={user}><SideBar /></Visibility>
+            <NavBar />
         </div>
     )
 }

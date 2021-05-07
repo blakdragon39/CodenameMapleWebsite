@@ -1,6 +1,6 @@
 .sideBar {
   position: fixed;
-  top: 64px;
+  transition: margin 0.3s;
   height: 100vh;
   width: 264px;
   min-width: 264px;
@@ -15,9 +15,23 @@
   padding-top: 16px;
   color: #023047;
 }
+.sideBar #expandCollapse {
+  height: 48px;
+  width: 48px;
+  align-self: flex-end;
+  position: absolute;
+  bottom: 32px;
+}
+.sideBar #sideBarCurrentPet {
+  margin-top: 64px;
+}
 
 #popoverWellbeing .arrow {
   display: none;
+}
+
+.closed {
+  margin: 0 0 0 -180px;
 }
 
 /*# sourceMappingURL=SideBar.css.map */
