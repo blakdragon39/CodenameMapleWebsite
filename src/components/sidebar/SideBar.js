@@ -19,14 +19,17 @@ const SideBar = () => {
 
     const toggleOpen = () => {
         setSideBarOpen(!sideBarOpen)
+        //todo retain state in localStorage
     }
 
+    const className = `sideBar ${sideBarOpen ? 'open' : 'closed'}`
+
     return (
-        <div className='sideBar'>
+        <div className={className}>
             <OverlayTrigger
                 placement='right-start'
                 overlay={<PopoverWellbeing wellbeing={currentPet ? currentPet.wellbeing : null} />}>
-                <SideBarCurrentPet currentPet={currentPet} />
+                <SideBarCurrentPet id='sideBarCurrentPet' currentPet={currentPet} />
             </OverlayTrigger>
 
             <Link to={routes.toUserId(user.id)} className='sideBarLink'>My Pets</Link>

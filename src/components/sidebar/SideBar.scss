@@ -3,6 +3,7 @@
 
 .sideBar {
     position: fixed;
+    transition: margin .3s;
 
     height: 100vh;
     width: dimens.$sidebar-width;
@@ -21,12 +22,16 @@
         color: colors.$color-secondary;
     }
 
-    .expandCollapse {
+    #expandCollapse {
         height: 48px;
         width: 48px;
         align-self: flex-end;
         position: absolute;
         bottom: dimens.$sidebar-padding;
+    }
+
+    #sideBarCurrentPet {
+        margin-top: dimens.$navBar-height;
     }
 }
 
@@ -34,4 +39,8 @@
     .arrow {
         display: none;
     }
+}
+
+.closed {
+    margin: 0 0 0 -180px;
 }

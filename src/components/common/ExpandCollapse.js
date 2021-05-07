@@ -5,13 +5,14 @@ import doubleArrow from '../../assets/icons/double_arrow.png'
 import './ExpandCollapse.css'
 
 const ExpandCollapse = ({ isOpen, onClick }) => {
-    const className = `expandCollapse ${isOpen ? 'open' : 'closed'}`
     return (
-        <img
-            className={className}
-            src={doubleArrow}
-            alt={isOpen ? 'collapseArrow' : 'expandArrow'}
-            onClick={onClick} />
+        <div id='expandCollapse'>
+            <img
+                className={`${isOpen ? 'openArrow' : 'closedArrow'}`}
+                alt={isOpen ? 'collapseArrow' : 'expandArrow'}
+                src={doubleArrow}
+                onClick={onClick} />
+        </div>
     )
 }
 

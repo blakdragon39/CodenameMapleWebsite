@@ -1,7 +1,12 @@
-.expandCollapse {
-    display: inline;
-}
+#expandCollapse {
+    display: inline-flex;
 
-.closed {
-    transform: rotate(180deg);
+    img {
+        object-fit: contain;
+        transition: transform .3s;
+    }
+
+    .openArrow {
+        transform: rotate(180deg);
+    }
 }
